@@ -1,0 +1,326 @@
+h1 タスク一覧
+= link_to '新規登録', new_review_path, class:'btn btn-primary'
+
+
+ doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title
+      | 読書行動文
+    meta content="width=device-width,initial-scale=1" name="viewport" /
+    link href="/favicon.png" rel=("shortcut icon") type="image/png" /
+    meta charset="UTF-8" /
+    title 読書行動文 - 読書行動文は、読んだ本を行動に繋げる為の文（読書行動文）を提出（保存）し、宣言できるサービスです。
+    meta content="読書行動文は、読んだ本を行動に繋げる為の文（読書行動文）を保存し、宣言できるサービスです" name="description" /
+    meta content=("読書行動文 - 読んだ本を行動に繋げる為の文（読書行動文）を保存し、宣言できるサービスです。") property="og:title" /
+    meta content="https://www.bukumo.jp/" property="og:url" /
+    meta content="読書行動文は、読んだ本を行動に繋げる為の文（読書行動文）を保存し、宣言できるサービスです" property="og:description" /
+    meta content="ja_JP" property="og:locale" /
+    meta content="https://www.bukumo.jp//og-image.png" property="og:image" /
+    meta content="summary_large_image" name="twitter:card" /
+    meta content="width=device-width,initial-scale=1" name="viewport" /
+    meta content="authenticity_token" name="csrf-param" /
+    meta content="vwd80BGIVoEKMZxhMAkcuVzqaecYcW1Zx+jNzfna5Fq3/eAu4orhiX6N2/c0Puu95LkTVvmX1ciLuk4G9cY5qw==" name="csrf-token" /
+    link data-turbolinks-track="reload" href="/Users/zen_fumi/Desktop/style2.css" media="all" rel="stylesheet" /
+    /! コメントアウトして正常に動作できれば、削除
+    script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+    script crossorigin="anonymous" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+    script crossorigin="anonymous" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+    script data-turbolinks-track="reload" src="/Users/zen_fumi/Desktop/Active_memo.js" 
+    link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet" /
+    /! Global site tag (gtag.js) - Google Analytics
+    script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-57479786-11" 
+    javascript:
+      | window.dataLayer = window.dataLayer || [];
+      | function gtag(){dataLayer.push(arguments);}
+      | gtag('js', new Date());
+
+      | gtag('config', 'UA-57479786-11');
+  body.c-body
+    header.c-header.pr16.pl16.flex
+      a.text-line-none.text-white href="/" 
+        img.c-header_logo.mt16.mb16 alt="Bukumo" src=("/Users/zen_fumi/Downloads/読書行動文 (1).png") /
+      .c-header_search
+        div
+          form accept-charset="UTF-8" action="/memo/index" method="get" 
+            input name="utf8" type="hidden" value="✓" /
+            input#q name="q" placeholder="書籍名で検索" type="text" value="" /
+          /!
+            | <div class="col-md"
+            | <button type="button" class="btn btn-success">Test button</button
+            | </div
+      #jsi-menu.c-menu.tar
+        a href="#" v-on:click="toggleMenu()" 
+          img.c-menu_toggle.mt16.mb16 alt="button" src="/Users/zen_fumi/Desktop/sozai_cman_jp_20200729205633.svg" /
+        .c-menu_contents v-bind:class=("{ 'is-open': openFlg }") 
+          section.c-profile.tal.mb32
+            a.c-profile_image.mb16 v-bind:href=("'/user/' + user.user_name") 
+              img :alt="user.user_name" :src="user.img_url" ref="image" /
+            p.c-profile_nickname.mb4
+              a v-bind:href=("'/user/' + user.user_name"} {{user.nickname}) 
+            p.c-profile_id.mb16
+              a v-bind:href=("'/user/' + user.user_name"} {{user.user_name}) 
+            p.c-profile_count.mb16
+              | 提出数
+              span>  {user.memoCount} 
+              | 件
+              | 完了数
+              span>  {user.doneCount} 
+              | 件
+              | いいね
+              span>  {user.likeCount} 
+              | 件
+            p
+              a.c-mainButton href="/memo/new" 
+                | 読書行動文を提出する
+          section.c-tagList.tal.mb16.dn
+            h2.mb8 タグ(実装中)
+            ul.c-tagList_list
+              li.ml4.mb4
+                a href="#"  名言
+              li.ml4.mb4
+                a href="#"  ライフスタイル
+              li.ml4.mb4
+                a href="#"  ミニマリズム
+              li.ml4.mb4
+                a href="#"  プログラミング
+              li.ml4.mb4
+                a href="#"  哲学
+          section.c-settingArea.tal.pt16.pr16.pl16.mb32
+            p.fs14.mb8
+              a href="/about"  読書行動文 の使い方
+            p.c-settingArea_logout.mb8
+              a data-method="delete" href="/users/sign_out" rel="nofollow" 
+                | ログアウト
+        .c-menu_overlay v-bind:class=("{ 'is-open': openFlg }") v-on:click="toggleMenu()" 
+    javascript:
+      | new Vue({
+        | el: '#jsi-menu',
+        | data: {
+          | openFlg: false,
+          | user: {},
+          | userId: 1011,
+          | errorMsg: '',
+        | },
+        | created: function() {
+          | if (sessionStorage.getItem('bukumo_user')) {
+            | this.user = JSON.parse(sessionStorage.getItem('bukumo_user'));
+          | } else {
+            | if (this.userId) {
+              | this.getUser()
+            | }
+          | }
+        | },
+        | methods: {
+          | getUser: function() {
+            | axios.get("/api/users/" + this.userId)
+              .then(response => {
+                | this.user = response.data;
+                | sessionStorage.setItem('bukumo_user', JSON.stringify(response.data));
+                | sessionStorage.setItem('memoCount', response.data.memoCount);
+                | sessionStorage.setItem('doneCount', response.data.doneCount);
+              | }).catch(response => {
+                | this.errorMsg = '通信に失敗しました。通信環境の良いところで再度お試しください。';
+              | });
+          | },
+          | toggleMenu: function() {
+            | this.openFlg = !this.openFlg;
+          | },
+          | imgError: function() {
+            | this.$refs.image.src = noImgUrl;
+          | }
+        | }
+      | });
+    main.c-main.pb32
+      #jsi-loading
+        transition name="fade" 
+          .c-spinner v-show="isDisplay" 
+            .c-spinner_content
+              .rect1
+              .rect2
+              .rect3
+              .rect4
+              .rect5
+      javascript:
+        | var app = new Vue({
+          | el: '#jsi-loading',
+          | data: {
+            | isDisplay: true,
+          | },
+          | mounted: function() {
+            | this.$nextTick(function () {
+              /!/ ビュー全体がレンダリングされた後にのみ実行される
+              | var self = this;
+              | setTimeout(function() {
+                | self.hideLoading();
+              | }, 300)
+            | })
+          | },
+          | methods: {
+            | hideLoading: function() {
+              | this.isDisplay = false;
+            | },
+          | },
+        | })
+      section.c-mv.row.mr0.ml0
+        .c-mv_visual.col-xs-12.col-sm-12.mr0.ml0.row
+          .col-sm.pt16
+            h1.tac.b.mb8.c-mv_catch
+              | 本を読んで
+              br>/
+              | 行動に移していますか？
+            p.tac.mb0.fs12.c-mv_sub
+              | 読書行動文は、
+              br>/
+              | 読んだ本を行動に繋げる為の文（読書行動文）を保存し、
+              br>/
+              | 宣言できるサービスです。
+            p#jsi-memo-count.tac.mb8.fs12.c-mv_count
+              | 現在の提出数
+              span.b  {memoCount} 
+              | 件
+            javascript:
+              | new Vue({
+                | el: '#jsi-memo-count',
+                | data: {
+                  | memoCount: 0,
+                | },
+                | created: function() {
+                  | if (!sessionStorage.getItem('bukumo_count')) {
+                    | this.getMemoCount();
+                  | } else {
+                    | this.memoCount = sessionStorage.getItem('bukumo_count');
+                  | }
+                | },
+                | methods: {
+                  | getMemoCount: function() {
+                    | axios.get("/api/memos/count")
+                      .then(response => {
+                        | this.memoCount = response.data;
+                        | sessionStorage.setItem('bukumo_count', this.memoCount);
+                      | }).catch(response => {
+                        | this.errorMsg = '通信に失敗しました。通信環境の良いところで再度お試しください。';
+                      | });
+                  | }
+                | }
+              | });
+            p.tac.mb8
+              a.c-mainButton href="/memo/new" 
+                | 読書行動文を提出する
+      section.pt24.pb24
+        h2.tac.b.fs18.mb24 新着の行動文
+        ul#jsi-new-memo.c-memoScroll.col-xs-12.col-sm-12.offset-sm-0.list-inline
+          li.mr24.list-inline-item v-for=("memo in memos") 
+            a v-bind:href=("'/memo/' + memo.id") 
+              template v-if="memo.img_url" 
+                img v-bind:alt="memo.body" v-bind:src="memo.img_url" /
+              template v-else="" 
+                img src="https://placehold.jp/26/696d79/24293d/180x250.png?text=NO%20IMAGE&css=%7B%22border-radius%22%3A%224px%22%2C%22font-weight%22%3A%22bold%22%2C%22letter-spacing%22%3A%22%20-1px%22%7D" /
+        javascript:
+          | new Vue({
+            | el: '#jsi-new-memo',
+            | data: {
+              | transition_name: 'show-next',
+              | memos: {},
+            | },
+            | created: function() {
+              | this.fetchMemo();
+            | },
+            | methods: {
+              | fetchMemo: function() {
+                | const count = 20;
+                | axios.get('/api/memos/new/' + '?count=' + count)
+                .then(response => {
+                  | this.memos = response.data
+                | }).catch(response => {
+                  | this.errorMsg = '通信に失敗しました。通信環境の良いところで再度お試しください。';
+                | });
+              | }
+            | }
+          | });
+      section.pt24.pb24
+        h2.tac.b.fs18.mb24 注目の行動文
+        ul#jsi-popular-memo.c-memoScroll.col-xs-12.col-sm-12.offset-sm-0.list-inline
+          li.mr24.list-inline-item v-for=("memo in memos") 
+            a v-bind:href=("'/memo/' + memo.id") 
+              template v-if="memo.img_url" 
+                img v-bind:alt="memo.body" v-bind:src="memo.img_url" /
+              template v-else="" 
+                img src="https://placehold.jp/26/696d79/24293d/180x250.png?text=NO%20IMAGE&css=%7B%22border-radius%22%3A%224px%22%2C%22font-weight%22%3A%22bold%22%2C%22letter-spacing%22%3A%22%20-1px%22%7D" /
+        javascript:
+          | new Vue({
+            | el: '#jsi-popular-memo',
+            | data: {
+              | transition_name: 'show-next',
+              | memos: {},
+            | },
+            | created: function() {
+              | this.fetchMemo();
+            | },
+            | methods: {
+              | fetchMemo: function() {
+                | const count = 20;
+                | axios.get('/api/memos/popular/' + '?count=' + count)
+                .then(response => {
+                  | this.memos = response.data
+                | }).catch(response => {
+                  | this.errorMsg = '通信に失敗しました。通信環境の良いところで再度お試しください。';
+                | });
+              | }
+            | }
+          | });
+      section.pt24.pb24
+        h2.tac.b.fs18.mb24 新着ユーザー
+        section.col-xs-12.col-sm-4.offset-sm-4.pr16.pl16
+          ul#jsi-new-user.c-userList.pl16.pr16
+            li.c-userList_list.mb4 v-for="(user, index) in users" 
+              a.c-userList_image v-bind:href=("'/user/' + user.user_name") 
+                template v-if="user.img_url" 
+                  img :alt="user.user_name" :src="user.img_url" ref="image" /
+                template v-else="" 
+                  img src="https://placehold.jp/26/696d79/24293d/180x250.png?text=NO%20IMAGE&css=%7B%22border-radius%22%3A%224px%22%2C%22font-weight%22%3A%22bold%22%2C%22letter-spacing%22%3A%22%20-1px%22%7D" /
+        javascript:
+          | new Vue({
+            | el: '#jsi-new-user',
+            | data: {
+              | users: {},
+              | count: 16,
+            | },
+            | created: function() {
+              | axios.get("/api/users?" + 'count=' + this.count)
+              .then(response => {
+                | this.users = response.data;
+              | }).catch(response => {
+                | this.errorMsg = '通信に失敗しました。通信環境の良いところで再度お試しください。';
+              | });
+            | },
+            | methods: {
+              | imgError: function(index) {
+                | this.$refs.image[index].src = noImgUrl;
+              | }
+            | }
+          | });
+    footer.c-footer.mr32.ml32.pt32.pb32
+      .col-xs-12.col-sm-6.offset-sm-3.pr0.pl0
+        .flex.c-footer_content.mb24
+          div
+            p.tac.fs12.mb8
+              a href="/about/"  📘
+            p.tac.fs12.mb8
+              a href="/about/"  読書行動文の使い方
+            p.tac.fs12.mb8
+              a href="/about/"  📘
+          div
+            p.fs12.mb8
+              a href="https://medium.com/bukumo" target="_blank"  更新情報
+            p.fs12.mb8
+              a href="https://twitter.com/___35d" target="_blank"  開発者Twitter
+            p.fs12.mb8
+              a href="https://docs.google.com/forms/d/e/1FAIpQLSc6RmRcJKB_1iddpNbifyR9ngiZ73Mw5ZxPCvg6vsndSQq9yQ/viewform" target="_blank"  お問い合わせ
+            p.fs12.mb8
+              a href="/privacy"  プライバシーポリシー
+        p.tac
+          small.c-footer_copyright
+            | ©読書行動文
+
