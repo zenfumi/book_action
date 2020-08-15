@@ -3,7 +3,9 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+// rails-ujsとは、Railsが提供するJavaScriptヘルパー
 require("@rails/ujs").start()
+// turbolinlsは、ページ遷移をAjax化して高速に読み込む為の仕組み
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")

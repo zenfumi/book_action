@@ -1,0 +1,73 @@
+/Library/Developer/CommandLineTools/usr/bin/make  all-recursive
+Making all in include
+Making all in libxml
+make[3]: Nothing to be done for `all'.
+make[3]: Nothing to be done for `all-am'.
+Making all in .
+  CC       xmllint.o
+  CC       SAX.lo
+  CC       entities.lo
+entities.c:561:68: warning: unused parameter 'attr' [-Wunused-parameter]
+xmlEncodeEntitiesInternal(xmlDocPtr doc, const xmlChar *input, int attr) {
+                                                                   ^
+1 warning generated.
+  CC       encoding.lo
+encoding.c:500:26: warning: cast from 'const unsigned char *' to 'unsigned short *' increases required alignment from 1 to 2 [-Wcast-align]
+    unsigned short* in = (unsigned short*) inb;
+                         ^~~~~~~~~~~~~~~~~~~~~
+encoding.c:582:27: warning: cast from 'unsigned char *' to 'unsigned short *' increases required alignment from 1 to 2 [-Wcast-align]
+    unsigned short* out = (unsigned short*) outb;
+                          ^~~~~~~~~~~~~~~~~~~~~~
+encoding.c:738:26: warning: cast from 'const unsigned char *' to 'unsigned short *' increases required alignment from 1 to 2 [-Wcast-align]
+    unsigned short* in = (unsigned short*) inb;
+                         ^~~~~~~~~~~~~~~~~~~~~
+encoding.c:824:27: warning: cast from 'unsigned char *' to 'unsigned short *' increases required alignment from 1 to 2 [-Wcast-align]
+    unsigned short* out = (unsigned short*) outb;
+                          ^~~~~~~~~~~~~~~~~~~~~~
+4 warnings generated.
+  CC       error.lo
+  CC       parserInternals.lo
+  CC       parser.lo
+  CC       tree.lo
+  CC       hash.lo
+  CC       list.lo
+  CC       xmlIO.lo
+  CC       xmlmemory.lo
+  CC       uri.lo
+  CC       valid.lo
+  CC       xlink.lo
+  CC       HTMLparser.lo
+  CC       HTMLtree.lo
+  CC       debugXML.lo
+  CC       xpath.lo
+  CC       xpointer.lo
+  CC       xinclude.lo
+  CC       nanohttp.lo
+  CC       nanoftp.lo
+  CC       catalog.lo
+  CC       globals.lo
+  CC       threads.lo
+  CC       c14n.lo
+  CC       xmlstring.lo
+  CC       buf.lo
+  CC       xmlregexp.lo
+  CC       xmlschemas.lo
+  CC       xmlschemastypes.lo
+  CC       xmlunicode.lo
+  CC       xmlreader.lo
+  CC       relaxng.lo
+  CC       dict.lo
+  CC       SAX2.lo
+  CC       xmlwriter.lo
+  CC       legacy.lo
+  CC       chvalid.lo
+  CC       pattern.lo
+  CC       xmlsave.lo
+  CC       xmlmodule.lo
+  CC       schematron.lo
+  CC       xzlib.lo
+/bin/sh: -c: line 0: syntax error near unexpected token `('
+/bin/sh: -c: line 0: `echo "  CCLD    " libxml2.la;/bin/sh ./libtool --silent --tag=CC   --mode=link clang -pedantic -Wall -Wextra -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings -Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wredundant-decls -Wno-long-long -Wno-format-extra-args -D_REENTRANT   -fPIC  -I /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libxml2    -version-info 11:10:9   -o libxml2.la -rpath /Users/zen_fumi/Documents/Book_action(clone)/vendor/bundle/ruby/2.6.0/gems/nokogiri-1.10.10/ports/x86_64-apple-darwin19.5.0/libxml2/2.9.10/lib SAX.lo entities.lo encoding.lo error.lo parserInternals.lo parser.lo tree.lo hash.lo list.lo xmlIO.lo xmlmemory.lo uri.lo valid.lo xlink.lo HTMLparser.lo HTMLtree.lo debugXML.lo xpath.lo xpointer.lo xinclude.lo nanohttp.lo nanoftp.lo  catalog.lo globals.lo threads.lo c14n.lo xmlstring.lo buf.lo xmlregexp.lo xmlschemas.lo xmlschemastypes.lo xmlunicode.lo  xmlreader.lo relaxng.lo dict.lo SAX2.lo xmlwriter.lo legacy.lo chvalid.lo pattern.lo xmlsave.lo xmlmodule.lo schematron.lo xzlib.lo  -lpthread -lz  -liconv -lm  '
+make[2]: *** [libxml2.la] Error 2
+make[1]: *** [all-recursive] Error 1
+make: *** [all] Error 2
