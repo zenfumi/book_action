@@ -2,15 +2,13 @@ doctype html
 html
   head
     title
-      | BookAction
+      = yield(:title)
+      |  | Ruby on Rails Tutorial Sample App
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all',
+    -                                'data-turbolinks-track' => 'reload'
+    = javascript_pack_tag    'application',
+    -                                'data-turbolinks-track') 'reload'
   body
-    .app-title.navbar.navbar-expand-md.navbar-light.bg-light
-      .navbar-brand Book_action
-    .container
-      -if flash.notice.present?
-        .alert.alert-success= flash.notice
     = yield
