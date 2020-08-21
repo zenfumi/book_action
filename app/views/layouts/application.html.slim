@@ -6,9 +6,19 @@ html
       |  | Ruby on Rails Tutorial Sample App
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all',
-    -                                'data-turbolinks-track' => 'reload'
-    = javascript_pack_tag    'application',
-    -                                'data-turbolinks-track') 'reload'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
+  = render 'layouts/shim'
+
   body
-    = yield
+
+  header.navbar.navbar-fixed-top.navbar-inverse
+  .container
+  = link_to image_tag("/Users/zen_fumi/Documents/Book_action(clone)/app/assets/images/読書行動文 (1).png", alt: "Book_action logo", width: "200px")
+
+  = render 'layouts/header'
+
+  .container
+  = yield
+  = render 'layouts/footer'

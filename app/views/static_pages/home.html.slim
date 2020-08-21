@@ -1,6 +1,17 @@
-- provide(:title, "Home")
-h1 Sample App
-p
-  | This is the home page for the
-  a href="https://railstutorial.jp/"  Ruby on Rails Tutorial
-  | sample application.
+.center.jumbotron
+  h1
+    | 本を読んで
+    br
+    | 行動に移していますか？
+  p
+    |  読書行動文は、
+    br
+    | 読んだ本を行動に繋げる為の文（読書行動文）を保存し、
+    br
+    | 宣言できるサービスです。 
+  = link_to "読書行動文を提出する", '#', class: "btn btn-lg btn-primary"
+
+
+
+
+
