@@ -23,6 +23,6 @@ class ReviewsController < ApplicationController
 
   private
     def review_params
-      params.require(:review).permit(:purpose,:memo,:plan_now,:plan_future,:spot_photo)
+      params.require(:review).permit(:purpose,:memo,:plan_now,:plan_future,:spot_photo,:user_id)
     end
 end
