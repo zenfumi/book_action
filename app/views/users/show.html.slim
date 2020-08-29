@@ -1,1 +1,14 @@
-= @user.email
+- provide(:title, @user.name)
+.row
+  aside.col-md-4
+    section.user_info
+      h1
+        = gravatar_for @user
+        = @user.name
+  .col-md-8
+    - if@user.reviews.any?
+      h3
+        | 読書行動文 (#{@user.reviews.count})
+      ol.reviews
+        = render @reviews
+      = will_paginate @reviews

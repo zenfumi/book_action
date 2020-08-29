@@ -1,20 +1,14 @@
-<% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
-  <div class="col-md-8">
-    <% if@user.reviews.any? %>
-      <h3>読書行動文 (<%= @user.reviews.count %>)</h3>
-      <ol class="reviews">
-        <%= render @reviews %>
-      </ol>
-    <%= will_paginate @microposts %>
-    <% end %>
-  </div>
-</div>
+- provide(:title, @user.name)
+.row
+  aside.col-md-4
+    section.user_info
+      h1
+        = gravatar_for @user
+        = @user.name
+  .col-md-8
+    - if@user.reviews.any?
+      h3
+        | 読書行動文 (#{@user.reviews.count})
+      ol.reviews
+        = render @reviews
+      = will_paginate @reviews

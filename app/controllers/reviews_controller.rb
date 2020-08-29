@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    review = Review.new(review_params)
+    review = current_user.reviews.new(review_params)
     review.save!
     #後でユーザー専用ページに遷移させる
     redirect_to reviews_url, notice: "読書行動文を提出しました。"
