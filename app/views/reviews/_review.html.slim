@@ -1,6 +1,9 @@
-li id="micropost-#{micropost.id}" 
-  = link_to gravatar_for(micropost.user, size: 50), micropost.user
-  span.user= link_to micropost.user.name, micropost.user
-  span.content= micropost.content
+li id="review-#{review.id}"
+  = link_to "#", review.user
+  span.user= link_to review.user.username, review.user
+  span.review= review.purpose
+  span.review= review.memo
+  span.review= review.plan_now
+  span.review= review.plan_future
   span.timestamp
-    | Posted #{time_ago_in_words(micropost.created_at)} ago.
+    | Posted #{time_ago_in_words(review.created_at)} ago.
