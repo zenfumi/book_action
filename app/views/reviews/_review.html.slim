@@ -7,3 +7,6 @@ li id="review-#{review.id}"
   span.review= review.plan_future
   span.timestamp
     | Posted #{time_ago_in_words(review.created_at)} ago.
+  -if current_user?(review.user)
+  = link_to "delete", review, method: :delete, \
+    data: { confirm: "You sure?" }

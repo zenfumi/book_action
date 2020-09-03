@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :correct_user, only: :destroy
+
   def index
     @reviews = Review.all
   end
@@ -20,9 +22,21 @@ class ReviewsController < ApplicationController
   def edit
   end
 
+  def destroy
+    @review.destroy
+    flash[:success] = "reviews deleted"
+    redirect_to request.referrer ||　review　　
+  end
 
   private
     def review_params
       params.require(:review).permit(:purpose,:memo,:plan_now,:plan_future,:spot_photo,:user_id)
     end
+
+    def correct_user
+      @review = current_user.reviews.find_by(id: params[:id])
+      #リダイレクト先は、とりあえずrootで設定
+      redirect_to root_url if @reviews.nil?
+    end
+
 end
