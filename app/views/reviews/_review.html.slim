@@ -10,3 +10,4 @@ li id="review-#{review.id}"
   -if current_user?(review.user)
   = link_to "delete", review, method: :delete, \
     data: { confirm: "You sure?" }
+  = link_to "編集" , edit_review_path

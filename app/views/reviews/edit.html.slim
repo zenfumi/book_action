@@ -1,2 +1,23 @@
-h1 Reviews#edit
-p Find me in app/views/reviews/edit.html.slim
+h1　読書行動文の編集
+
+.nav.justify-content-end
+  = link_to '一覧', reviews_path, class: 'nav-link'
+
+= form_with model: @review, local: true do |f|
+  .form-group
+    = f.label :purpose
+    = f.text_field :purpose, class:'form-control',　id: 'review_purpose'
+
+  .form-group
+    = f.label :memo
+    = f.text_area :memo, rows: 7,class:'form-control',id:'review_memo'
+
+  .form-group
+    = f.label :plan_now
+    = f.text_area :plan_now, rows: 3, class:'form-control', id:'review_plan_now'
+
+  .form-group
+    = f.label :plan_future
+    = f.text_area :plan_future,rows: 3, class:'form-control', id:'review_plan_future'
+
+  = f.submit nil,class: 'btn btn-primary'

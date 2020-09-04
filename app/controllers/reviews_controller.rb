@@ -20,6 +20,14 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @review = current_user.reviews.find(params[:id])
+  end
+
+  def update
+    review = current_user.reviews.find(params[:id])
+    task.update!（review.params）
+    #リダイレクト先、とりあえずユーザーページへ
+    redirect_to review_path, notice:"読書行動文を更新しました。"
   end
 
   def destroy
