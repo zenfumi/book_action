@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = current_user.reviews.find(params[:id])
+    @review = current_user.reviews.find_by(id:params[:id])
   end
 
   def update
@@ -30,9 +30,8 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    review = current_user.reviews.find(params[:id])
-    review.destroy
-    flash[:success] = "reviews deleted"
+    @review.destroy
+    flash[:notice] = "reviews deleted"
     redirect_to request.referrer ||　review　　
   end
 
@@ -44,7 +43,7 @@ class ReviewsController < ApplicationController
     def correct_user
       @review = current_user.reviews.find_by(id: params[:id])
       #リダイレクト先は、とりあえずrootで設定
-      redirect_to root_url if @reviews.nil?
+      redirect_to root_url if @review.nil?
     end
 
 end
