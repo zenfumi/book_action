@@ -3,10 +3,10 @@ header.navbar.navbar-fixed-top.navbar-inverse
   = link_to "sample app", root_path, id: "logo"
   nav
     ul.nav.navbar-nav.navbar-right
-      /<% if current_user %>
-      li= link_to current_user.username, "/users/current_user.id"
-      li= link_to "Home", root_path
-      li= link_to "About", about_path
+      /- if current_user
+        li= link_to current_user.username, "/users/#{current_user.id}"
+        li= link_to "Home", root_path
+        li= link_to "About", about_path
       - if user_signed_in?
         = link_to 'ユーザー編集', edit_user_registration_path
         = link_to "ログアウト", destroy_user_session_path, method: :delete
