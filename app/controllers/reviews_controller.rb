@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :correct_user, only: :destroy
+  before_action :correct_user, only: [:destroy, :edit]
+  before_action :authenticate_user!,{only:[:edit, :update]}
 
   def index
     @reviews = Review.all
@@ -7,6 +8,7 @@ class ReviewsController < ApplicationController
 
   def show
   end
+
 
   def new
     @review = Review.new
@@ -34,6 +36,7 @@ class ReviewsController < ApplicationController
     flash[:notice] = "reviews deleted"
     redirect_to request.referrer ||　review　　
   end
+
 
   private
     def review_params
