@@ -6,9 +6,10 @@ header.navbar.navbar-fixed-top.navbar-inverse
       - if current_user
         li= link_to current_user.username, "/users/#{current_user.id}"
       li= link_to "Home", root_path
-      li= link_to "About", about_path
+      li= link_to "使い方を見る", about_path
       - if user_signed_in?
         = link_to 'ユーザー編集', edit_user_registration_path
+        = link_to "ユーザ一覧", users_path
         = link_to "ログアウト", destroy_user_session_path, method: :delete
       - else
         = link_to "新規登録", new_user_registration_path

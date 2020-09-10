@@ -9,7 +9,11 @@
     | 読んだ本を行動に繋げる為の文（読書行動文）を保存し、
     br
     | 宣言できるサービスです。
-  = link_to "読書行動文を提出する", new_review_path , class: "btn btn-primary"
+  - if user_signed_in?
+    = link_to "読書行動文を提出する", new_review_path , class: "btn btn-primary"
+  - else
+    = link_to "ログインする", new_user_session_path ,class: "btn btn-primary"
+    = link_to "使い方を見る", about_path, class: "btn btn-primary"
 
 
 
