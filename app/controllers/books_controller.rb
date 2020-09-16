@@ -11,11 +11,10 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    if @user.save
-      
+    if @book.save
+
     else
-     
-  
+    render 'new'
     end
   end
   
