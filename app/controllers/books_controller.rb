@@ -11,8 +11,9 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+    @book.image.attach(params[:book][:image])
     if @book.save
-
+    
     else
     render 'new'
     end

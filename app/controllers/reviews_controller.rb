@@ -15,10 +15,13 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    review = current_user.reviews.new(review_params)
-    review.save!
-    #後でユーザー専用ページに遷移させる
-    redirect_to reviews_url, notice: "読書行動文を提出しました。"
+    @review = current_user.reviews.new(review_params)
+    if @review.save
+    #本の詳細ページにリダイレクトorトップページに遷移させる
+    redirect_to root_url, notice: "読書行動文を提出しました。"
+    else
+      render 'reviews/new'
+    end
   end
 
   def edit
@@ -26,9 +29,13 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    review = current_user.reviews.find(params[:id])
-    review.update!(review_params)
-    redirect_to user_path, notice:"読書行動文を更新しました。"
+    @review = current_user.reviews.find(params[:id])
+    if @review.update(review_params)
+    redirect_to root_url, notice:"読書行動文を更新しました。"
+    else
+      render 'reviews/edit'
+    end
+
   end
 
   def destroy

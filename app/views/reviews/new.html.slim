@@ -4,6 +4,7 @@ h1　読書行動文の登録
   = link_to '一覧', reviews_path, class: 'nav-link'
 
 = form_with model: @review, local: true do |f|
+  = render 'shared/error_messages', object: f.object
   .form-group
     = f.label :purpose
     = f.text_field :purpose, class:'form-control',　id: 'review_purpose'
@@ -19,5 +20,9 @@ h1　読書行動文の登録
   .form-group
     = f.label :plan_future
     = f.text_area :plan_future,rows: 3, class:'form-control', id:'review_plan_future'
+
+  f.form-group
+    = f.label :spot_photo
+    = f.file_field :spot_photo,class: 'form-control'
 
   = f.submit nil,class: 'btn btn-primary'

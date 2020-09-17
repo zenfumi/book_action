@@ -4,6 +4,7 @@ h1　読書行動文の編集
   = link_to '一覧', reviews_path, class: 'nav-link'
 
 = form_with model: @review, local: true do |f|
+  = render 'shared/error_messages', object: f.object
   .form-group
     = f.label :purpose
     = f.text_field :purpose, class:'form-control',　id: 'review_purpose'
