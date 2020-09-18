@@ -7,5 +7,4 @@ class Review < ApplicationRecord
   validates :purpose, presence: true
   validates :plan_now, presence: true
   validates :plan_future, presence: true
-  #カラムが確定したらバリデーションを追加する。
 end

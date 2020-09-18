@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   def index
+    @books = Book.all
   end
 
   def show
@@ -13,7 +14,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.image.attach(params[:book][:image])
     if @book.save
-    
+    redirect_to books_path, notice:"「#{@book.title}」を登録しました。"
     else
     render 'new'
     end
