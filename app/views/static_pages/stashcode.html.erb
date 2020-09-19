@@ -1,7 +1,8 @@
 <div class="book-area">
-  <%= link_to "", book_path(book), class: "book-area__link" %>
+  <%= book.title%>
+  <%= link_to "", book_path(book.id), class: "book-area__link" %>
   <div class="book-area__image">
-    <% if book.image.present? %>
+    <% if @book.image.present? %>
       <%= image_tag "#{book.image}", height: '170px', width: '120px' %>
     <% else %>
       <%= image_tag "no_image.png", height: '170px', width: '120px' %>

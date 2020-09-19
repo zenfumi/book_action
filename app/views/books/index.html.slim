@@ -1,2 +1,12 @@
 h1 Books#index
 p Find me in app/views/books/index.html.slim
+
+/ 動作確認用コード
+.mb-3
+table.table.table-hover
+  thread-default
+  tbody
+  - @books.each do |book|
+    td= book.title
+    td= book.created_at
+    td= image_tag book.image if book.image.attached?

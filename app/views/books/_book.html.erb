@@ -1,5 +1,5 @@
 <div class="book-area">
-  <%= link_to "", book_path(book), class: "book-area__link" %>
+  <%= link_to "", book_path(@book), class: "book-area__link" %>
   <div class="book-area__image">
     <% if book.image.present? %>
       <%= image_tag "#{book.image}", height: '170px', width: '120px' %>
