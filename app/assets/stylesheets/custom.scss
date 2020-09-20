@@ -1,9 +1,75 @@
 @import "bootstrap";
 
+/* color */
+$light_blue: #139af5;
+
+/* mixin */
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
+}
+
+@mixin book_index {
+  padding: 20px;
+  font-size: 20px;
+  display: grid;
+  grid-auto-rows: 300px;
+  grid-template-columns: repeat(auto-fit, 180px);
+  justify-content: center;
+  .book-area {
+    width: 120px;
+    height: 170px;
+    margin: 0 30px;
+    color: $light_blue;
+    position: relative;
+    &__link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &__image {
+      width: 120px;
+      height: 170px;
+      img {
+        object-fit: contain;
+      }
+    }
+    &__title {
+      font-size: 15px;
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    &__author {
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+@mixin no_image {
+  margin: auto;
+  padding-top: 60px;
+  background-color: #dddddd;
+  height: 170px;
+  color: white;
+  .pic-icon {
+    display: block;
+    font-size: 30px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .msg {
+    font-size: 18px;
+    text-align: center;
+  }
 }
 
 /* universal */
@@ -142,69 +208,6 @@ footer ul li {
 }
 
 /* top page-book_index */
-$light_blue: #139af5;
-
-@mixin book_index {
-  padding: 20px;
-  font-size: 20px;
-  display: grid;
-  grid-auto-rows: 300px;
-  grid-template-columns: repeat(auto-fit, 180px);
-  justify-content: center;
-  .book-area {
-    width: 120px;
-    height: 170px;
-    margin: 0 30px;
-    color: $light_blue;
-    position: relative;
-    &__link {
-      display: block;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    &__image {
-      width: 120px;
-      height: 170px;
-      img {
-        object-fit: contain;
-      }
-    }
-    &__title {
-      font-size: 15px;
-      display: -webkit-box;
-      overflow: hidden;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-    }
-    &__author {
-      font-size: 12px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
-}
-
-@mixin no_image {
-  margin: auto;
-  padding-top: 60px;
-  background-color: #dddddd;
-  height: 170px;
-  color: white;
-  .pic-icon {
-    display: block;
-    font-size: 30px;
-    text-align: center;
-    margin: 0 auto;
-  }
-  .msg {
-    font-size: 18px;
-    text-align: center;
-  }
-}
 
 .book-index {
   @include book_index;
