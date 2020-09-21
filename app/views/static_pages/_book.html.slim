@@ -1,5 +1,5 @@
 .book-area
-  = link_to "", book_path(book), class: "book-area__link"
+  = link_to "", reviews_path(book) , class: "book-area__link"
   .book-area__image
     - if book.image.attached?
       = image_tag book.image, height: '170px', width: '120px'
