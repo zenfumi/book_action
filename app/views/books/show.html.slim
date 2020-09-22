@@ -3,7 +3,7 @@
     .book-area
       .book-image
         - if @book.image.present?
-          = image_tag "#{@book.image.url}"
+          = image_tag @book.image
         - else
           = image_tag "no_image.png"
 
@@ -14,49 +14,15 @@
           = @book.author
 
       .create-note-link
-        - if current_user&.already_read?(@book)
-          = link_to "行動文を提出する", new_book_note_path(@book.id), class: "create-note-btn"
-
+        - if current_user
+          = link_to "行動文を提出する", new_review_path(@book.id), class: "create-note-btn"
+    /book_id含むレビューを登録して確認すること
     .notes-counts
       = "この本のノート数 #{@reviews.length}"
 
-/   .right-content
-/     .contents-title
-/       ノート一覧
-/     .note-contents
-/       = render @reviews
-
-/ #overlay
-/   #modal-window__book-register
-/     .book-info
-/       #modal-book-image
-/         - if @book.origin_image_url.present?
-/           = image_tag "#{@book.origin_image_url}", height: '140px', width: '100px'
-/         - elsif @book.image.present?
-/           = image_tag "#{@book.image}", height: '140px', width: '100px'
-/         - else
-/           = image_tag "no_image.png", height: '140px', width: '100px'
-/       .right-content
-/         #modal-book-title
-/           = @book.title
-/         #modal-book-author
-/           - if @book.author.present?
-/             = @book.author
-/           - else
-/             = "不明な作者"
-/         #modal-book-publisher
-/           - if @book.publisher.present?
-/             = @book.publisher
-/           - else
-/             = "不明な出版社"
-/     .book-register-form
-/       .select-message
-/         選択してください
-/       = form_with(model: @book_user, url: {controller: 'book_users', action: 'create' }, local:true) do |f|
-/         = f.select :status, BookUser.statuses_i18n.invert, {}, class: "status-form"
-/         = f.hidden_field :book_id, value: @book.id
-/         .btn-area
-/           #modal-close-btn
-/             キャンセル
-/           .submit-btn
-/             = f.submit "登録", class: "submit-form"
+  .right-content
+    .contents-title
+      ノート一覧
+    /book_id含むレビューを登録して確認すること
+    .note-contents
+      = render partial: 'reviews/review', collection: @reviews
