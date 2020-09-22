@@ -1,30 +1,30 @@
-/ .contents
-/   .left-content
-/     .book-area
-/       .book-image
-/         - if @book.image.present?
-/           = image_tag "#{@book.image.url}"
-/         - else
-/           = image_tag "no_image.png"
+.contents
+  .left-content
+    .book-area
+      .book-image
+        - if @book.image.present?
+          = image_tag "#{@book.image.url}"
+        - else
+          = image_tag "no_image.png"
 
-/       .book-info
-/         .book-title
-/           = @book.title
-/         .book-author
-/           = @book.author
+      .book-info
+        .book-title
+          = @book.title
+        .book-author
+          = @book.author
 
-/       .create-note-link
-/         - if current_user&.already_read?(@book)
-/           = link_to "行動文を提出する", new_book_note_path(@book.id), class: "create-note-btn"
+      .create-note-link
+        - if current_user&.already_read?(@book)
+          = link_to "行動文を提出する", new_book_note_path(@book.id), class: "create-note-btn"
 
-/     .notes-counts
-/       = "この本のノート数 #{@notes.length}"
+    .notes-counts
+      = "この本のノート数 #{@reviews.length}"
 
 /   .right-content
 /     .contents-title
 /       ノート一覧
 /     .note-contents
-/       = render @notes
+/       = render @reviews
 
 / #overlay
 /   #modal-window__book-register
