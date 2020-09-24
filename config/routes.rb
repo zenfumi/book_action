@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
   devise_for :users
   resources :users
-  resources :reviews
+  resources :reviews, [:new, :create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

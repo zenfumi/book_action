@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   before_action :correct_user, only: [:destroy, :edit]
   before_action :authenticate_user!,{only:[:edit, :update]}
   #試行中
-  before_action :set_books, only: [:new]
+  # before_action :set_books, only: [:new]
 
   def index
     @reviews = Review.all
@@ -12,7 +12,12 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @review = Review.new
+    # @book = Book.find(params[:id])
+    if @review = Review.find_by(id:params[:id], user_id:current_user.id)
+      render 'reviews/edit'
+    else
+     @review = Review.new
+    end
   end
 
   def create
@@ -22,6 +27,16 @@ class ReviewsController < ApplicationController
     else
       render 'reviews/new'
     end
+
+
+    # 変更①
+    # @book = Book.find_by(params[:id])
+    # @review = current_user.reviews.new(review_params.merge(book_id: @book.id))
+    # if @review.save
+    #   redirect_to book_path(@book)
+    # else
+    #   render 'reviews/new'
+    # end
 
     #変更前コード
     # @review = current_user.reviews.new(review_params)
@@ -56,14 +71,7 @@ class ReviewsController < ApplicationController
 
   private
     def review_params
-      params.require(:review).permit(
-        :purpose,
-        :memo,
-        :plan_now,
-        :plan_future,
-        :spot_photo,
-        :user_id
-        ).merge(book_id:params[:book_id])
+      params.require(:review).permit(:purpose,:memo,:plan_now,:plan_future,:spot_photo,:user_id)
     end
 
     def correct_user
@@ -72,9 +80,10 @@ class ReviewsController < ApplicationController
       redirect_to root_url if @review.nil?
     end
     
-    def set_books
-      @book = Book.find(params[:book_id])
-    end
+    # reviewをnewする際に必要なメソッド？ここの意味がわからない。
+    # def set_books
+    #   @book = Book.find(params[:book_id])
+    # end
   
     
 end
