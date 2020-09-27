@@ -8,19 +8,16 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @review = Review.find(params[:id])
   end
 
   def new
     @book = Book.find(params[:book_id])
-    if @review = Review.find_by(book_id:@book.id, user_id:current_user.id)
-      render 'reviews/edit'
-    else
-     @review = Review.new
-    end
+    @review = Review.new
   end
 
   def create
-    @review = Reviews.new(review_params)
+    @review = Review.new(review_params)
     if @review.save
       #遷移先、動作確認すること
       redirect_to book_path(@book)
@@ -30,25 +27,27 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @review = Review.find(params[:id])
+    # newで定義していたコード
+    # @review = Review.find_by(book_id:@book.id, user_id:current_user.id)
   end
 
   def update
-    @review = current_user.reviews.find(params[:id])
+    # @review = current_user.reviews.find(params[:id])
+    @review = Review.find(params[:book_id])
     if @review.update(review_params)
        #遷移先、動作確認すること
       redirect_to book_path(@book), notice:"読書行動文を更新しました。"
     else
       render 'reviews/edit'
     end
-
   end
   
-  # 削除機能は、後で実装。
-  # def destroy
-  #   @review.destroy
-  #   flash[:notice] = "reviews deleted"
-  #   redirect_to request.referrer ||　review　　
-  # end
+  def destroy
+    @review.destroy
+    flash[:notice] = "reviews deleted"
+    redirect_to request.referrer ||　review　　
+  end
 
 
   private

@@ -2,7 +2,7 @@ h1　読書行動文の編集
 
 .nav.justify-content-end
 
-= form_for @review,:url => {:action => :new} do |f|
+= form_with model: @review, url: book_reviews_path, local: true do |f|
   = render 'shared/error_messages', object: f.object
   .form-group
     = f.label :purpose

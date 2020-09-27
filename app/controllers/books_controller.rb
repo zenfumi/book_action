@@ -6,7 +6,8 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     #book_idを含む投稿をしてみる。
-    @reviews = Review.where(book_id: params[:book_id]).includes(:user)
+    @reviews = Review.where(book_id: @book.id).includes(:user)
+
   end
 
   def new

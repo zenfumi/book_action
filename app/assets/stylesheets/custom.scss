@@ -2,6 +2,7 @@
 
 /* color */
 $light_blue: #139af5;
+$gray: #5e5c5c;
 
 /* mixin */
 @mixin box_sizing {
@@ -71,6 +72,27 @@ $light_blue: #139af5;
     text-align: center;
   }
 }
+
+@mixin btn($bColor: $light_blue, $fColor: $white, $fSize: 15px) {
+  font-size: $fSize;
+  background-color: $bColor;
+  color: $fColor;
+  border-radius: 5px;
+  border-bottom: solid 4px #46707c;
+  outline:0;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+@mixin btn_action {
+  -webkit-transform: translateY(3px);
+  transform: translateY(3px);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  border-bottom: none;
+}
+
 
 /* universal */
 
@@ -217,3 +239,164 @@ footer ul li {
     @include no_image;
   }
 }
+
+/* book_show_page */
+
+@media (max-width: 800px){
+  .contents {
+    .left-content {
+      width: 80vw;
+      max-width: 600px;
+      padding: 20px 0;
+      margin: 0 auto;
+      .book-area {
+        display: flex;
+        .book-image, img {
+          width: 30vw;
+          max-width: 150px;
+          height: calc(30vw * 1.4);
+          max-height: calc(150px * 1.4);
+        }
+        .book-info {
+          margin-left: 5px;
+        }
+        .book-title {
+          font-size: calc(10px + 2vw);
+        }
+        .book-author {
+          font-size: calc(8px + 1vw);
+        }
+      }
+    }
+    #book-register-link, .create-note-btn, .edit-book-btn, .finish-reading-btn {
+      border: none;
+      @include btn();
+    }
+    .right-content {
+      width: 84vw;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 10px 2vw;
+    }
+  }
+}
+
+@media (min-width: 801px){
+  .contents {
+    display: flex;
+    .left-content {
+      width: 260px;
+      height: calc(100vh - 50px);
+      padding: 50px 30px;
+      max-width: 600px;
+      margin: 0 auto;
+      .book-area {
+        .book-image, img {
+          width: 200px;
+          height: 280px;
+          margin: 0 auto;
+        }
+        .book-title {
+          font-size: 25px;
+        }
+        .book-author {
+          font-size: 15px;
+        }
+      }
+    }
+    #book-register-link, .create-note-btn, .edit-book-btn, .finish-reading-btn {
+      border: none;
+      @include btn();
+    }
+    .right-content {
+      width: 100%;
+      margin: 0 auto;
+      padding: 50px 10px;
+    }
+  }
+}
+
+//↓ボタンのレスポンシブ用
+@media (max-width: 500px) {
+  .left-content {
+    .btn-area {
+      #book-register-link, .amazon-link-btn, .create-note-btn, .edit-book-btn, .finish-reading-btn {
+        width: 80vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) and (min-width: 501px) {
+  .left-content {
+    .btn-area {
+      display: grid;
+      grid-template-columns: 33% 33% 33%;
+      justify-content: space-between;
+      #book-register-link, .amazon-link-btn, .create-note-btn, .edit-book-btn, .finish-reading-btn {
+        width: 25vw;
+        max-width: 180px;
+      }
+    }
+  }
+}
+@media (min-width: 801px) {
+  .left-content {
+    .btn-area {
+      #book-register-link, .amazon-link-btn, .create-note-btn, .edit-book-btn, .finish-reading-btn {
+        width: 150px;
+      }
+    }
+  }
+}
+
+
+.contents {
+  max-width: 1000px;
+  margin: 0 auto;
+  .book-image {
+    img {
+      object-fit: contain;
+    }
+  }
+  .book-title {
+    color: $gray;
+  }
+  .book-author {
+    color: $gray;
+    margin-bottom: 30px;
+  }
+  a.amazon-link-btn {
+    display: inline-block;
+    height: 40px;
+    margin: 10px 0;
+    background-color: #FF9900;
+    text-align: center;
+    text-decoration: none;
+    line-height: 40px;
+    color: #fff;
+    border-radius: 5px;
+  }
+
+  #book-register-link, .create-note-btn, .edit-book-btn, .finish-reading-btn {
+    display: inline-block;
+    height: 40px;
+    margin: 10px 0;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+  }
+  #book-register-link:active, .create-note-btn:active,  .edit-book-btn:active, .finish-reading-btn:active {
+    @include btn_action;
+  }
+    
+  .right-content {
+    color: $gray;
+    overflow-y: auto;
+    .contents-title {
+      font-size: 25px;
+      text-align: center;
+    }
+  }
+}
+
