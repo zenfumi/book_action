@@ -12,10 +12,10 @@ ja:
     attributes:
       review:
         id: ID
-        purpose: 本を読む目的
+        purpose: 目的、ねらい
         memo: 良かったこと、感じたこと
-        plan_now: この本を読んで、自分は今から何をするか
-        plan_future: 3ヶ月後には、何をするか、どうなりたいか
+        plan_now: 自分は今から何をするか
+        plan_future: 3ヶ月後には何をするか、どうなりたいか
         spot_photo: スクショ画像
         created_at: 登録日時
         updated_at: 更新日時

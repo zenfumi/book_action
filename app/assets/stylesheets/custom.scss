@@ -93,6 +93,12 @@ $gray: #5e5c5c;
   border-bottom: none;
 }
 
+@mixin note {
+  background-color: #fafafa;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
 
 /* universal */
 
@@ -396,6 +402,52 @@ footer ul li {
     .contents-title {
       font-size: 25px;
       text-align: center;
+    }
+  }
+}
+
+.note-wrapper {
+  @include note;
+  position: relative;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 10px;
+  .note-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .note-info {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    &__user {
+      font-size: 20px;
+    }
+    &__likes-count {
+      font-size: 13px;
+      i {
+        color: red;
+        margin-right: 5px;
+      }
+    }
+  }
+  .note-content {
+    &__title {
+      font-size: 18px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &__content {
+      font-size: 13px;
+      margin-left: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 }
