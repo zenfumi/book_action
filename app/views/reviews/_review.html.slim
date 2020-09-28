@@ -1,19 +1,5 @@
-/ li id="review-#{review.id}"
-/   = link_to "#", review.user
-/   span.user= link_to review.user.username, review.user
-/   span.review= review.purpose
-/   span.review= review.memo
-/   span.review= review.plan_now
-/   span.review= review.plan_future
-/   span.timestamp
-/     | Posted #{time_ago_in_words(review.created_at)} ago.
-/   -if current_user?(review.user)
-/     = link_to "delete", book_review_path(review), method: :delete, \
-/     data: { confirm: "You sure?" }
-/     = link_to "編集" ,edit_book_review_path(review)
-
 .note-wrapper
-  / = link_to "", book_note_path(note.book_id, note), class: "note-link"
+  = link_to "", book_review_path(review.book_id,review), class: "note-link"
   .note-info
     .note-info__user
       = "#{review.user.username}さんの読書行動文"
@@ -32,7 +18,23 @@
     = Review.human_attribute_name(:plan_future)
     = "：#{review.plan_future}"
 
+/ Railsチュートリアル素材
+/ li id="review-#{review.id}"
+/   = link_to "#", review.user
+/   span.user= link_to review.user.username, review.user
+/   span.review= review.purpose
+/   span.review= review.memo
+/   span.review= review.plan_now
+/   span.review= review.plan_future
+/   span.timestamp
+/     | Posted #{time_ago_in_words(review.created_at)} ago.
+/   -if current_user?(review.user)
+/     = link_to "delete", book_review_path(review), method: :delete, \
+/     data: { confirm: "You sure?" }
+/     = link_to "編集" ,edit_book_review_path(review)
 
+
+/ 現場Rails 参考
 / table.table.table-hover
 /   tbody
 /     tr

@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :correct_user, only: [:destroy, :edit]
   before_action :authenticate_user!,{only:[:edit, :update]}
-  before_action :set_books, only: [:new, :create, :edit, :update]
+  before_action :set_books, only: [:new, :create, :edit, :update, :show]
 
   def index
     @reviews = Review.all
@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
 
   def update
     # @review = current_user.reviews.find(params[:id])
-    @review = Review.find(params[:book_id])
+    @review = Review.find(params[:id])
     if @review.update(review_params)
        #遷移先、動作確認すること
       redirect_to book_path(@book), notice:"読書行動文を更新しました。"

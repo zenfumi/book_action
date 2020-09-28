@@ -2,8 +2,7 @@ h1　読書行動文の登録
 
 .nav.justify-content-end
 
-/= form_with model: @reviews, local: true do |f|
-= form_for @review,:url => {:action => :create} do |f|
+= form_with model: @review, url: book_reviews_path, local: true do |f|
   = render 'shared/error_messages', object: f.object
   .form-group
     = f.label :purpose

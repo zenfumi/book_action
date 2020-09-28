@@ -1,14 +1,61 @@
-- provide(:title, @user.name)
-.row
-  aside.col-md-4
-    section.user_info
-      h1
+.note-show-wrapper
+  .link-area
+    .move-page-link
+      .back-page-link
+        = link_to "行動文一覧へ戻る", book_path(@book.id), class: "back-page-btn"
+      .user-page-link
+        = link_to "#{@review.user.username}さんのページ", user_path(@review.user_id), class: "user-page-btn"
+    .note-edit-area
+      - if @review.user.id == current_user.id
+        .edit-page-link
+          = link_to  "編集",edit_book_review_path(@book.id, @review.id), class: 'btn btn-primary mr-3'
+        .delete-note-link 
+        = link_to "削除", book_review_path(@book.id, @review.id), method: :delete,data: { confirm: "#{@book.title}の読書行動文を削除します。よろしいですか？" }, class: 'btn btn-danger'
 
-        = @user.name
-  .col-md-8
-    - if@user.reviews.any?
-      h3
-        | 読書行動文 (#{@user.reviews.count})
-      ol.reviews
-      = render ＠reviews
-      = will_paginate @reviews
+  .slide
+    .top-slide
+      .top-slide__book-title
+        = "#{@book.title}"
+      .top-slide__user-name
+        = "行動文提出者 : #{@review.user.username}"
+
+    h2.slide-title
+      = Review.human_attribute_name(:purpose)
+    .purpose-area
+      =@review.purpose
+
+    h2.slide-title
+      = Review.human_attribute_name(:memo)
+    .purpose-area
+      =@review.memo
+
+    h2.slide-title
+      = Review.human_attribute_name(:plan_now)
+    .review-area
+      =@review.plan_now
+
+    h2.slide-title
+      = Review.human_attribute_name(:plan_future)
+    .action-plan-area
+      =@review.plan_future
+
+/ 現場rails参考
+/ table.table.table-hover
+/   tbody
+/     tr
+/       th= Review.human_attribute_name(:purpose)
+/       td= @review.purpose
+/     tr
+/       th= Review.human_attribute_name(:memo)
+/       td= @review.memo
+/       / td= auto_link(simple_format(h(review.memo), {}, sanitize: false, wrapper_tag: "div"))
+/     tr
+/       th= Review.human_attribute_name(:plan_now)
+/       td= @review.plan_now
+
+/     tr
+/       th= Review.human_attribute_name(:plan_future)
+/       td= @review.plan_future
+
+/ = link_to '編集', edit_book_review_path(@book.id,@review), class: 'btn btn-primary mr-3'
+/ = link_to '削除', book_review_path(@book.id,@review), method: :delete, data: { confirm: "#{@book.title}の読書行動文を削除します。よろしいですか？" }, class: 'btn btn-danger'
