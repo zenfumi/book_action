@@ -718,58 +718,50 @@ footer ul li {
 }
 
 
-/* users/show Progate参考================================ */
-.user-show {
-  text-align: center;
+/* users/show ================================ */
+.main-content {
+  .tabs-area {
+    max-width: 1000px;
+    padding: 0 20px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .content-tabs {
+    border-bottom: 2px solid gray;
+    display: flex;
+    .books-menu-tab {
+      width: 130px;
+      text-align: center;
+      padding: 3px 0;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      background-color: #ccc;
+      color: #fff;
+      cursor: pointer;
+    }
+    .books-menu-tab.active {
+      background-color: $light_blue;
+    }
+  }
 }
 
-.user {
-  margin-bottom: 20px;
+.user-books-area {
+  display: none;
 }
-
-.user img {
-  width: 80px;
-  height: 80px;
-  border-radius: 40%;
-  box-shadow: 0 2px 6px #c1ced7;
-  margin: 20px 0 10px;
-  object-fit: cover;
-}
-
-.user h2 {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-.user p {
-  font-size: 13px;
-  margin-bottom: 15px;
-}
-
-.user a {
-  color: #8899a6;
-  text-decoration: underline;
-  font-weight: 200;
-}
-
-.user span {
-  color: #afb6bf;
-  font-weight: 200;
-  padding: 0 6px 0 8px;
-}
-
-.user-tabs {
+.user-books-area.show {
+  max-width: 1000px;
+  margin: 0 auto;
   margin-top: 40px;
-  background-color: white;
-  overflow: hidden;
-  box-shadow: 0 2px 6px #c1ced7;
-}
-
-.user-tabs li {
-  float: left;
-}
-
-.user-tabs li.active {
-  border-bottom: 2px solid #3ecdc6;
+  @include book_index;
+  padding: 0;
+  .no-image {
+    @include no_image;
+  }
+  .book-area__note-info, .update-book-status-link {
+    font-size: 12px;
+  }
+  .book-area__note-link {
+    text-decoration: none;
+    color: $light_blue;
+  }
 }
