@@ -10,10 +10,20 @@
       .books-menu-tab
         達成
 
-  .user-books-area.show
-    = render partial: "reviews/userreview", collection: @reviews
-  
+  / .user-books-area.show
+  /   = render partial: 'reviews/user_review', collection: @reviews, as: "review"
+  .right-content
+    .note-contents
+    = render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book
 
+  / .right-content
+  /   .contents-title
+  /     ノート一覧
+  /   /book_id含むレビューを登録して確認すること
+  /   .note-contents
+  /     = render partial: 'reviews/review', collection: @reviews
+
+  /分類するロジック部分
   / .user-books-area.show
   /   = render partial: "book", collection: @books
   / .user-books-area

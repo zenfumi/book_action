@@ -2,7 +2,7 @@
   = link_to "", book_review_path(review.book_id,review), class: "note-link"
   .note-info
     .note-info__user
-      = "#{@book.title}"
+      = "#{review.book.title}"
   .note-content
     .note-content__title
     = Review.human_attribute_name(:purpose)
