@@ -20,4 +20,8 @@ h1　読書行動文の編集
     = f.label :plan_future
     = f.text_area :plan_future,rows: 3, class:'form-control', id:'review_plan_future'
 
+  .form-group
+    = f.label :completed
+    = f.select :completed, [['未行動',0],['行動中',1],['習慣化',2]], {}, class: 'form-control', id: 'review_completed'
+
   = f.submit nil,class: 'btn btn-primary'

@@ -58,7 +58,8 @@ class ReviewsController < ApplicationController
         :plan_now,
         :plan_future,
         :spot_photo,
-        :user_id
+        :user_id,
+        :completed
         ).merge(book_id:params[:book_id])
         .merge(user_id:current_user.id)
     end
