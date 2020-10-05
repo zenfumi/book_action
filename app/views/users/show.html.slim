@@ -10,11 +10,22 @@
       .books-menu-tab
         達成
 
-  / .user-books-area.show
-  /   = render partial: 'reviews/user_review', collection: @reviews, as: "review"
   .right-content
-    .note-contents
+    .note-contents.show
     = render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book
+    .note-contents
+    - @reviews = Review.where(id: @user.id, completed: 1)
+    = render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book
+    / .user-books-area
+    / - @books = Book.status_books(@user.id, 1)
+    / = render partial: "book", collection: @books
+    / .user-books-area
+    / - @books = Book.status_books(@user.id, 0)
+    / = render partial: "book", collection: @books
+
+
+
+
 
   / .right-content
   /   .contents-title

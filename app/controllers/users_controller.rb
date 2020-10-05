@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     # @reviews = @user.reviews.paginate(page: params[:page])
     @reviews = Review.where(user_id: @user.id)
+
   end
 
   def index
