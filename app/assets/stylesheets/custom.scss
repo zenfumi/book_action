@@ -56,6 +56,50 @@ $marker_blue: #a8ebff;
   }
 }
 
+@mixin review_index {
+  padding: 20px;
+  font-size: 20px;
+  display: block;
+  grid-auto-rows: 300px;
+  grid-template-columns: repeat(auto-fit, 180px);
+  justify-content: center;
+  .book-area {
+    width: 120px;
+    height: 170px;
+    margin: 0 30px;
+    color: $light_blue;
+    position: relative;
+    &__link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &__image {
+      width: 120px;
+      height: 170px;
+      img {
+        object-fit: contain;
+      }
+    }
+    &__title {
+      font-size: 15px;
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    &__author {
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
 @mixin no_image {
   margin: auto;
   padding-top: 60px;
@@ -752,7 +796,7 @@ footer ul li {
   max-width: 1000px;
   margin: 0 auto;
   margin-top: 40px;
-  @include book_index;
+  @include review_index;
   padding: 0;
   .no-image {
     @include no_image;
@@ -765,5 +809,3 @@ footer ul li {
     color: $light_blue;
   }
 }
-
-

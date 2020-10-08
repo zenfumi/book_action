@@ -4,6 +4,6 @@ $(function() {
     $(".active").removeClass("active"); 
     $(this).addClass("active"); 
     const index = tabs.index(this); 
-    $(".note-contents").removeClass("show").eq(index).addClass("show"); 
+    $(".user-books-area").removeClass("show").eq(index).addClass("show"); 
   })
 })
