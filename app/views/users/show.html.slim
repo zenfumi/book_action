@@ -4,7 +4,7 @@
       .books-menu-tab.active
         全て
       .books-menu-tab
-        実行中
+        行動中
       .books-menu-tab
         習慣化
       .books-menu-tab
@@ -22,27 +22,6 @@
     .user-books-area
       - @reviews = Review.where(user_id: @user.id, completed: 2)
       = render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book
-
-
-  / .right-content
-  /   .contents-title
-  /     ノート一覧
-  /   /book_id含むレビューを登録して確認すること
-  /   .note-contents
-  /     = render partial: 'reviews/review', collection: @reviews
-
-  /分類するロジック部分
-  / .user-books-area.show
-  /   = render partial: "book", collection: @books
-  / .user-books-area
-  /   - @books = Book.status_books(@user.id, 2)
-  /   = render partial: "book", collection: @books
-  / .user-books-area
-  /   - @books = Book.status_books(@user.id, 1)
-  /   = render partial: "book", collection: @books
-  / .user-books-area
-  /   - @books = Book.status_books(@user.id, 0)
-  /   = render partial: "book", collection: @books
 
 
 

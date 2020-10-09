@@ -39,23 +39,12 @@
     .action-plan-area
       =@review.plan_future
 
-/ 現場rails参考
-/ table.table.table-hover
-/   tbody
-/     tr
-/       th= Review.human_attribute_name(:purpose)
-/       td= @review.purpose
-/     tr
-/       th= Review.human_attribute_name(:memo)
-/       td= @review.memo
-/       / td= auto_link(simple_format(h(review.memo), {}, sanitize: false, wrapper_tag: "div"))
-/     tr
-/       th= Review.human_attribute_name(:plan_now)
-/       td= @review.plan_now
+  .btn-area
+  = link_to "https://twitter.com/share?url=#{ request.url }&text=「#{@book.title}」の読書行動文#{@review.user.username}今からやること：#{@review.plan_now} 3ヶ月後に何をするか、どうなりたいか:#{@review.plan_future} &hashtags=読書行動文", class: 'btn btn-default', target: '_blank' do
+    i.fab.fa-twitter style='color: #3399FF;'
+    |  Twitterでシェア
 
-/     tr
-/       th= Review.human_attribute_name(:plan_future)
-/       td= @review.plan_future
-
-/ = link_to '編集', edit_book_review_path(@book.id,@review), class: 'btn btn-primary mr-3'
-/ = link_to '削除', book_review_path(@book.id,@review), method: :delete, data: { confirm: "#{@book.title}の読書行動文を削除します。よろしいですか？" }, class: 'btn btn-danger'
+/ .share-area
+/ = link_to "https://twitter.com/share?url=#{ request.url }&text=「#{@book.title}」の読書行動文<br>#{@review.user.username}<br>今からやること：#{@review.plan_now} <br>3ヶ月後に何をするか、どうなりたいか:#{@review.plan_future} &hashtags=読書行動文", class: 'btn btn-default', target: '_blank' do
+/   i.fab.fa-twitter style='color: #3399FF;'
+/   |  Twitterでシェア
