@@ -5,7 +5,7 @@
 
 // rails-ujsとは、Railsが提供するJavaScriptヘルパー
 require("@rails/ujs").start()
-// turbolinlsは、ページ遷移をAjax化して高速に読み込む為の仕組み
+// turbolinksは、ページ遷移をAjax化して高速に読み込む為の仕組み
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
