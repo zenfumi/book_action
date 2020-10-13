@@ -1,3 +1,4 @@
+document.addEventListener("turbolinks:load", function() {
 $(function() {
   let tabs = $(".books-menu-tab");
   $(".books-menu-tab").on("click", function() {
@@ -6,4 +7,5 @@ $(function() {
     const index = tabs.index(this); 
     $(".user-books-area").removeClass("show").eq(index).addClass("show"); 
   })
+})
 })
