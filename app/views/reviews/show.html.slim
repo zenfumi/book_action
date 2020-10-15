@@ -39,10 +39,11 @@
     .action-plan-area
       =@review.plan_future
 
-  / = if Like.find_by(user_id:current_user.id, review_id:@review.id)
-  / | = link_to "いいね!済", /likes/#{@review.id}/destroy"
-  / - else
-  / | = link_to("いいね!","/likes/#{@review.id}/create",{method:"post"}")
+  #like-link
+    - if Like.find_by(user_id:current_user.id, review_id:@review.id)
+      = link_to "いいね!済", book_review_like_path(@review.book_id,@like.review_id,@like.id), method: :delete
+    - else
+      = link_to "いいね!", book_review_likes_path(@review,@like),method: :post
 
   .btn-area
   = link_to "https://twitter.com/share?url=#{ request.url }&text=「#{@book.title}」の読書行動文#{@review.user.username}今からやること：#{@review.plan_now} 3ヶ月後に何をするか、どうなりたいか:#{@review.plan_future} &hashtags=読書行動文", class: 'btn btn-default', target: '_blank' do

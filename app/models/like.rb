@@ -1,6 +1,7 @@
 class Like < ApplicationRecord
-  validates :user_id,presense:true
-  validates :review_id,presense:true
-  belong_to :user
-  belong_to :review
+  validates :user_id,presence:true
+  validates :review_id,presence:true
+  belongs_to :user
+  belongs_to :review
+  validates_uniqueness_of :review_id, scope: :user_id
 end
