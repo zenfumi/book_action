@@ -9,8 +9,7 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
-    #パーシャルを使用する場合、@likesを使う
-    #@likes = Like.where(note_id: params[:id])
+    @likes = Like.where(review_id: params[:id])
     if Like.find_by(user_id:current_user.id, review_id:@review.id)
       @like = Like.find_by(review_id: @review.id, user_id: current_user.id)
     else

@@ -1,0 +1,52 @@
+.like-area
+  - if Like.find_by(user_id:current_user.id, review_id:@review.id)
+    .like-area__message
+      p いいねしたらコメントしよう
+    .like-area__btn
+      = link_to book_review_like_path(review.book_id,like.review_id,like.id), method: :delete, class: "like-btn", remote: true do
+      = icon 'far', 'heart'
+      = " #{likes.length}"
+  - else
+    .like-area__message
+      p 気に入ったらいいねしよう
+    .like-area__btn
+      = link_to book_review_likes_path(book.id,review.id), method: :post, class: 'like-btn', remote: true do
+      = icon 'far', 'heart'
+      = " #{likes.length}"
+
+  / #like-link
+  /   - if Like.find_by(user_id:current_user.id, review_id:@review.id)
+  /     = link_to "いいね!済", book_review_like_path(@review.book_id,@like.review_id,@like.id), method: :delete
+  /   - else
+  /     = link_to "いいね!", book_review_likes_path(@book.id,@review.id), method: :post
+
+
+
+
+/ .like-area
+/   - if current_user&.already_liked?(note)
+/     .like-area__message
+/       %p いいねしたらコメントしよう
+/     .like-area__btn
+/       = link_to book_note_like_path(book.id, note.id, @like.id), method: :delete, class: "like-btn", remote: true do
+/         = icon('fa', 'heart', class: "liked-icon")
+/       = " #{likes.length}"
+/   - else
+/     .like-area__message
+/       %p 気に入ったらいいねしよう
+/     .like-area__btn
+/       = link_to book_note_likes_path(book.id, note.id), method: :post, class: "like-btn", remote: true do
+/         = icon('far', 'heart', class: "like-icon")
+/       = " #{likes.length}"
+
+/ - if !current_user?(micropost.user)
+/   span.like
+/     - if micropost.iine?(current_user)
+/       = form_for(micropost.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f|
+/         = button_tag(class: "btn btn-default btn-xs") do
+/           = content_tag :span, "#", class: "glyphicon glyphicon-heart"
+/     - else
+/       = form_for(micropost.likes.build, remote: true) do |f|
+/         div= hidden_field_tag :micropost_id, micropost.id
+/         = button_tag(class: "btn btn-default btn-xs") do
+/           = content_tag :span, "#", class: "glyphicon glyphicon-heart-empty"
