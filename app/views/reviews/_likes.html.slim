@@ -1,22 +1,23 @@
 .like-area
-  - if Like.find_by(user_id:current_user.id, review_id:@review.id)
+  - if Like.find_by(user_id:current_user.id, review_id:review.id)
     .like-area__message
       p いいねしたらコメントしよう
     .like-area__btn
-      = link_to book_review_like_path(review.book_id,like.review_id,like.id), method: :delete, class: "like-btn", remote: true do
+      = link_to book_review_like_path(review.book_id,review.id,@like.id), method: :delete, class: "like-btn", remote: true do
       = icon 'far', 'heart'
-      = " #{likes.length}"
+      = "#{@likes.length}"
   - else
     .like-area__message
       p 気に入ったらいいねしよう
     .like-area__btn
-      = link_to book_review_likes_path(book.id,review.id), method: :post, class: 'like-btn', remote: true do
-      = icon 'far', 'heart'
-      = " #{likes.length}"
+      = link_to "いいね!", book_review_likes_path(book.id,review.id), method: :post
+      / = link_to book_review_likes_path(book.id,review.id), method: :post, class: 'like-btn', remote: true do
+      / = icon 'far', 'heart'
+      / = " #{likes.length}"
 
   / #like-link
   /   - if Like.find_by(user_id:current_user.id, review_id:@review.id)
-  /     = link_to "いいね!済", book_review_like_path(@review.book_id,@like.review_id,@like.id), method: :delete
+  /     = link_to "いいね済", book_review_like_path(review.book_id,review.id,@like.id), method: :delete
   /   - else
   /     = link_to "いいね!", book_review_likes_path(@book.id,@review.id), method: :post
 
