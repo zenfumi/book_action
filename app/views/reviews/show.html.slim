@@ -40,8 +40,7 @@
       =@review.plan_future
 
   - if user_signed_in?
-  /#like-link_=@review.id
-  #like-link
+  td id='like-link_#{@review.id}'
     = render partial: 'likes', locals: {review: @review, book: @book,　likes: @likes }
 
   .btn-area
