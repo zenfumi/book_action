@@ -13,8 +13,12 @@ require("@rails/activestorage").start()
 require("channels")
 require('jquery')
 require('javascripts/users_book_tab.js')
-
-
+require('/Users/zen_fumi/Documents/Book_action(clone)/app/views/likes/create.js.erb')
+require('/Users/zen_fumi/Documents/Book_action(clone)/app/views/likes/destoy.js.erb')
+window.$ = $
+document.addEventListener("turbolinks:load", () => {
+  console.log($.fn.jquery)
+})
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.

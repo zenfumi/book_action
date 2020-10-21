@@ -1,1 +1,2 @@
-$("#like-link_<%= @review.id").html("<%= j(render partial: "likes", locals: { review: @review, book: @book, likes: @likes })"); %> %>
+console.log($.fn.jquery)
+$("#like-link_<%= @review.id%>").html("<%= j(render partial: "reviews/likes", locals: { review: @review, book: @book, likes: @likes })%>");
