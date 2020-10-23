@@ -40,8 +40,9 @@
       =@review.plan_future
 
   - if user_signed_in?
-  td id='like-link_#{@review.id}'
-  = render partial: 'likes', locals: {review: @review, book: @book,　likes: @likes }
+  /  td id='like-link_#{ @review.id }'
+  div id='like_#{ @review.id }'
+    = render partial: 'likes', locals: {review: @review, book: @book,　likes: @likes }
 
   .btn-area
   = link_to "https://twitter.com/share?url=#{ request.url }&text=「#{@book.title}」の読書行動文#{@review.user.username}今からやること：#{@review.plan_now} 3ヶ月後に何をするか、どうなりたいか:#{@review.plan_future} &hashtags=読書行動文", class: 'btn btn-default', target: '_blank' do
