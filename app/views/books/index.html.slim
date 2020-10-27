@@ -14,6 +14,7 @@
     = link_to "本を登録する", new_book_path , class: "btn btn-primary"
   - else
     = link_to "ログインする", new_user_session_path ,class: "btn btn-primary"
+    = link_to "ゲストログイン（閲覧用）",  users_guest_sign_in_path ,class: "btn btn-primary", method: :post
     = link_to "使い方を見る", about_path, class: "btn btn-primary"
 
 .book-index
