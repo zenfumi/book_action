@@ -345,6 +345,9 @@ footer ul li {
 }
 
 /* top page-book_index */
+.visual{
+  background-image: url("app/assets/images/15223533_p2_master1200.jpg");
+}
 
 .book-index {
   @include book_index;
