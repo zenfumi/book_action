@@ -654,6 +654,9 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  /*変更 */
+  padding-top:65px;
+
 }
 @media (min-width: 576px) {
   /* line 6, /Users/u/Git/bukumo/vendor/bundle/ruby/2.5.0/gems/bootstrap-4.0.0/assets/stylesheets/bootstrap/_grid.scss */
@@ -11210,7 +11213,7 @@ p {
 }
 /* line 27, /Users/u/Git/bukumo/app/assets/stylesheets/_component.scss */
 .c-header_logo {
-  height: 16px;
+  height: 20px;
 }
 /* line 31, /Users/u/Git/bukumo/app/assets/stylesheets/_component.scss */
 .c-header_search {
@@ -12525,4 +12528,90 @@ p {
 .c-checkbox > div:first-of-type input[type=checkbox]:checked ~ label:after {
   left: 24px;
 }
-/*純粋なCSS*/
+
+/*side bar*/
+/* Side Menu */
+#sidebar-wrapper {
+  position: fixed;
+  z-index: 2;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  transition: all 0.4s ease 0s;
+  transform: translateX(250px);
+  background: #1D809F;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-nav li.sidebar-nav-item a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  padding: 15px;
+}
+
+.sidebar-nav li a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+  font-size: 1.2rem;
+  background: rgba(52, 58, 64, 0.1);
+  height: 80px;
+  line-height: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  color: #fff;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}
+
+#sidebar-wrapper.active {
+  right: 250px;
+  width: 250px;
+  transition: all 0.4s ease 0s;
+}
+
+.menu-toggle {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  color: #fff;
+  background: #c66719;
+  line-height: 50px;
+  z-index: 999;
+}
+
+.menu-toggle:focus, .menu-toggle:hover {
+  color: #fff;
+}
+
+.menu-toggle:hover {
+  background: #343a40;
+}
