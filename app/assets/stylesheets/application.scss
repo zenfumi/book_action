@@ -11491,7 +11491,7 @@ p {
 
 /* line 309, /Users/u/Git/bukumo/app/assets/stylesheets/_component.scss */
 .c-mv_visual {
-  background-image: url("/Users/zen_fumi/Desktop/15223533_p2_master1200.jpg");
+  background-image: url("<%= asset_path('app/assets/images/15223533_p2_master1200.jpg') %>");
   background-size: 760px;
   height: 250px;
   -webkit-animation: c_mv_scroll 60s linear infinite;
@@ -12539,7 +12539,7 @@ p {
   height: 100%;
   transition: all 0.4s ease 0s;
   transform: translateX(250px);
-  background: #1D809F;
+  background: #143d38;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -12547,7 +12547,7 @@ p {
   position: absolute;
   top: 0;
   width: 250px;
-  margin: 0;
+  margin-top: 60px;
   padding: 0;
   list-style: none;
 }
@@ -12613,5 +12613,5 @@ p {
 }
 
 .menu-toggle:hover {
-  background: #343a40;
+  background: #023d53;
 }

@@ -347,7 +347,7 @@ footer ul li {
 
 /* top page-book_index */
 .visual{
-  background-image: url("app/assets/images/15223533_p2_master1200.jpg");
+  background-image: url("<%= asset_path('app/assets/images/15223533_p2_master1200.jpg') %>");
 }
 
 .book-index {
@@ -357,6 +357,14 @@ footer ul li {
   .no-image {
     @include no_image;
   }
+}
+
+ <%# .jumbotron{
+   background: image-url('15223533_p2_master1200.jpg');
+ } %>
+
+.jumbotron {
+  background-image: url("<%= asset_path('15223533_p2_master1200.jpg') %>");
 }
 
 /* book_show_page */
