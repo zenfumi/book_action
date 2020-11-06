@@ -1,0 +1,17 @@
+<div class="center jumbotron">
+  <div class="container">
+    <h1 class="tac b mb8 c-mv_catch"> 本を読んで <br> 行動に移していますか？ </h1>
+    <p class="tac mb0 fs12 c-mv_sub"> 読書行動文は、 <br> 読んだ本をもとに行動に繋げる為の文（読書行動文）を作成し <br> 保存・シェア・進捗管理を行うことで行動に繋げるサービスです。 </p>
+
+  <% if user_signed_in? %>
+  <%= link_to "本を登録する", new_book_path , class: "btn btn-primary" %>
+  <% else %>
+    <%= link_to "ログインする", new_user_session_path ,class: "btn btn-primary" %>
+    <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path ,class: "btn btn-primary", method: :post %>
+<% end %>
+</div>
+</div>
+
+<div class="book-index">
+   <%= render partial: 'static_pages/book', collection: @books%>
+</div>
