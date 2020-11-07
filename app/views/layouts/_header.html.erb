@@ -30,6 +30,12 @@
     <%= link_to "本を登録する", new_book_path %>
     </li>
     <li class="sidebar-nav-item">
+    <%= link_to "ユーザー編集", edit_user_registration_path %>
+    </li>
+    <li class="sidebar-nav-item">
+    <%= link_to "ユーザ一覧", users_path %>
+    </li>
+    <li class="sidebar-nav-item">
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     </li>
     <% else %>

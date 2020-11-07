@@ -1,0 +1,63 @@
+<main class="c-main pb32">
+      
+  <div class="col-xs-12 col-sm-6 offset-sm-3 pt32 pr0 pl0">
+  <section class="c-profile tal mb24 pr24 pl24" id="jsi-profile">
+  <div class="flex mb8">
+    <a href="#" class="c-profile_image mb8 mr12">
+      <img :src="user.img_url" :alt="user.user_name" @error="imgError" ref="image">
+    </a>
+    <div>
+      <p class="c-profile_description">
+        {{user.description}}
+      </p>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="c-profile_nicknameArea">
+      <p class="c-profile_nickname mb4">
+        <span v-if="user.private_flg">🔒</span>
+        <a href="#">{{user.nickname}}</a>
+      </p>
+      <p class="c-profile_id mb16">
+        <a href="#">{{user.user_name}}</a>
+      </p>
+    </div>
+      <p class="tar wf">
+        <a v-bind:href="'/user/' + user.user_name + '/edit/'" class="c-ghostButton">編集</a>
+      </p>
+  </div>
+
+  <p class="c-profile_count">
+    メモ数<span>{{user.memoCount}}</span>件
+    完了数<span>{{user.doneCount}}</span>件
+    いいね<span>{{user.likeCount}}</span>件
+  </p>
+</section>
+
+<div class="main-content">
+  <div class="tabs-area">
+    <div class="content-tabs">
+      <div class="books-menu-tab active"> 全て</div>
+      <div class="books-menu-tab">行動中</div>
+      <div class="books-menu-tab">習慣化 </div>
+      <div class="books-menu-tab"> 達成</div>
+  </div>
+</div>
+
+<div class="note-area">
+  <div class="user-books-area show">
+    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
+  </div>
+  <div class="user-books-area">
+    <% @reviews = Review.where(user_id: @user.id, completed: 0) %>
+    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
+  </div>
+  <div class="user-books-area">
+    <% @reviews = Review.where(user_id: @user.id, completed: 1) %>
+    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
+  </div>
+  <div class="user-books-area"> 
+    <% @reviews = Review.where(user_id: @user.id, completed: 2) %>
+    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %> </div>
+  </div>
+</div>
