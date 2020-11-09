@@ -100,6 +100,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-bootstrap-views (1.1.0)
     devise-i18n (1.9.2)
       devise (>= 4.7.1)
     dotenv (2.7.6)
@@ -315,6 +316,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   devise
+  devise-bootstrap-views (~> 1.0)
   devise-i18n
   dotenv-rails
   faker (= 2.1.2)

@@ -2,6 +2,7 @@
 @import "custom";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "bootstrap/scss/bootstrap";
 
 /*!
  * Bootstrap v4.0.0 (https://getbootstrap.com)
@@ -39,6 +40,23 @@
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+// ログイン画面
+
+.container-login {
+  @extend .container-fluid;
+  max-width: 576px;
+  padding: 2rem;
+}
+
+// 「ログインしました」などのフラッシュ用スタイル
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
 }
 
 /* line 21, /Users/u/Git/bukumo/vendor/bundle/ruby/2.5.0/gems/bootstrap-4.0.0/assets/stylesheets/bootstrap/_reboot.scss */
