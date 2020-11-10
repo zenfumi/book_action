@@ -6,7 +6,7 @@
 
   <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', required: true  %>
+    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', required: true, maxlength: '100' %>
   </div>
 
   <div class="form-group">
@@ -24,7 +24,10 @@
 
   <div class="form-group">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control' %>
+    <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control',
+                                      required: true,
+                                      minlength: @minimum_password_length,
+                                      maxlength: '30' %>
   </div>
 
   <div class="form-group">
