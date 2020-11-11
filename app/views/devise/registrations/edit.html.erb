@@ -5,10 +5,21 @@
   <%= bootstrap_devise_error_messages! %>
 
   <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: 'form-control'%>
+  </div>
+
+  <div class="form-group">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control',
                                       required: true,
                                       maxlength: '100' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :username %>
+    <%= f.text_field :username, autofocus: true, class: 'form-control', maxlength: '100' %>
+    <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
   </div>
 
   <div class="form-group">
