@@ -16,3 +16,39 @@
 <div class="book-index">
    <%= render partial: 'static_pages/book', collection: @books%>
 </div>
+
+<section class="pt24 pb24">
+  <h2 class="tac b fs18 mb24">新着ユーザー</h2>
+  <div class="col-xs-12 col-sm-4 offset-sm-4 pr16 pl16">
+  <ul id="jsi-new-user" class="c-userList pl16 pr16">
+
+  <% @users.each do |user| %>
+    <%= link_to("テスト", user_path(user), class: 'c-userList_image') %>
+    <li class="c-userList_list mb4">
+
+    <%= image_tag user.image.to_s,class:'icon_images' %>
+    </li>
+  <% end %>
+  </ul>
+
+</section>
+
+<%# <section class="pt24 pb24">
+  <h2 class="tac b fs18 mb24">新着ユーザー</h2>
+  <section class="col-xs-12 col-sm-4 offset-sm-4 pr16 pl16">
+  <ul id="jsi-new-user" class="c-userList pl16 pr16">
+    <li v-for="(user, index) in users" class="c-userList_list mb4">
+      <a v-bind:href="'/user/' + user.user_name" class="c-userList_image">
+        <template v-if="user.img_url">
+          <img :src="user.img_url" :alt="user.user_name" @error="imgError(index)" ref="image">
+        </template>
+        <template v-else>
+          <img src="https://placehold.jp/26/696d79/24293d/180x250.png?text=NO%20IMAGE&css=%7B%22border-radius%22%3A%224px%22%2C%22font-weight%22%3A%22bold%22%2C%22letter-spacing%22%3A%22%20-1px%22%7D">
+        </template>
+      </a>
+    </li>
+  </ul>
+</section> %>
+
+
+

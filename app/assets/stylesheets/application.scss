@@ -11872,10 +11872,18 @@ p {
   margin-right: -16px;
 }
 /* line 711, /Users/u/Git/bukumo/app/assets/stylesheets/_component.scss */
-.c-userList_image img {
+// .c-userList_image img {
+//   height: 64px;
+//   width: 64px;
+//   border-radius: 50%;
+//   display: inline-block;
+// }
+
+.c-userList_image {
   height: 64px;
   width: 64px;
   border-radius: 50%;
+  // display: inline-block;
 }
 
 /* line 720, /Users/u/Git/bukumo/app/assets/stylesheets/_component.scss */

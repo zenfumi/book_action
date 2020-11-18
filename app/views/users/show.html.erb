@@ -5,32 +5,19 @@
     <a href="#" class="c-profile_image mb8 mr12">
     <%= image_tag @user.image.to_s, class:'icon_image'%>
     </a>
-    <div>
-      <p class="c-profile_description">
-        {{user.description}}
-      </p>
-    </div>
   </div>
   <div class="flex">
     <div class="c-profile_nicknameArea">
       <p class="c-profile_nickname mb4">
-        <span v-if="user.private_flg">🔒</span>
-        <a href="#">{{user.nickname}}</a>
-      </p>
-      <p class="c-profile_id mb16">
-        <a href="#">{{user.user_name}}</a>
+        <span v-if="user.private_flg"></span>
+        <%= link_to current_user.username,"/users/#{current_user.id}",class: 'js-scroll-trigger' %>
       </p>
     </div>
       <p class="tar wf">
-        <a v-bind:href="'/user/' + user.user_name + '/edit/'" class="c-ghostButton">編集</a>
+        <%= link_to "編集", edit_user_registration_path , class: "btn btn-primary" %>
       </p>
   </div>
 
-  <p class="c-profile_count">
-    メモ数<span>{{user.memoCount}}</span>件
-    完了数<span>{{user.doneCount}}</span>件
-    いいね<span>{{user.likeCount}}</span>件
-  </p>
 </section>
 
 <div class="main-content">
