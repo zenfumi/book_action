@@ -1,4 +1,4 @@
-- provide(:title, "About")
+<% provide(:title, 'About') %>
 <section class="pt32 pr32 pb32 pl32 col-xs-12 col-sm-6 offset-sm-3 c-about">
   <h1 class="fs20 b tac mb24">読書行動文の使い方</h1>
   <p class="fs14 mb16 tac lh24">読書行動文は <a href="https://www.amazon.co.jp/dp/B01G6U99B8" target="_blank" rel="noopener noreferrer" class="cw tu">アクションリーディング</a> の<br>思想を取り入れた読書メモサービスです。
@@ -22,8 +22,8 @@
     </section>
     <section class="flex mb40 c-about_section2">
       <div>
-        <h2 class="fs18 mb16 b">2．読書行動文を読む</h2>
-        <p class="fs14 mb16 lh24">週1回程度、時間が空いた時などに自身の書いた読書行動文を読み返しましょう。</p>
+        <h2 class="fs18 mb16 b">2．読書行動文を読んで振り返る</h2>
+        <p class="fs14 mb16 lh24">週1回日時を決めて、読書行動文を読み「行動できているか？」など振り返りをしよう。</p>
       </div>
       <div class="mr16">
         <div class="c-about_iphone">
@@ -33,24 +33,14 @@
     </section>
     <section class="flex mb40">
       <div class="mr16">
-        <h2 class="fs18 mb16 b">3．行動文の進捗管理をする。</h2>
-        <p class="fs14 mb16 lh24">読書行動文に進捗状況（行動中/習慣化/達成）を登録をすると、自分のページで進捗ごとに行動文が見れます。</p>
+        <h2 class="fs18 mb16 b">3．読書行動文の進捗管理をする。</h2>
+        <p class="fs14 mb16 lh24">読書行動文で宣言した行動の進捗状況（行動中/習慣化/達成)を登録しよう。自分のページで進捗状況ごとに読書行動文が見られます。</p>
       </div>
       <div>
         <div class="c-about_iphone">
           <img src="/assets/gif/about_03-94c846d593802dc860fe7ba3c9865b8c2740c87fba0511c766b24792726e4467.gif" alt="About 03" />
         </div>
       </div>
-      /     <section class="flex mb40">
-      / <div class="mr16">
-      /   <h2 class="fs18 mb16 b">4．自身の書いた読書行動文の進捗管理しよう</h2>
-      /   <p class="fs14 mb16 lh24">行動の進捗状況（行動中/習慣化/完了）を設定しよう。自分のページで進捗別に読書行動文を分類できます。</p>
-      / </div>
-      / <div>
-      /   <div class="c-about_iphone">
-      /     <img src="/assets/gif/about_03-94c846d593802dc860fe7ba3c9865b8c2740c87fba0511c766b24792726e4467.gif" alt="About 03" />
-      /   </div>
-      / </div>
     </section>
   </div>
 
@@ -59,8 +49,12 @@
     <p class="fs14 mb16 lh24 tac">読書行動文を提出して、<br>行動する為の読書をしていきましょう。
     </p>
     <p class="tac">
-        <a class="c-mainButton" href="/memo/new">
-          本を登録する
-</a>    </p>
+    <% if user_signed_in? %>
+    <%= link_to "本を登録する", new_book_path , class: "btn btn-primary" %>
+    <% else %>
+    <%= link_to "ログインする", new_user_session_path ,class: "btn btn-primary" %>
+    <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path ,class: "btn btn-primary", method: :post %>
+    <% end %>
+    </p>
   </section>
 </section>
