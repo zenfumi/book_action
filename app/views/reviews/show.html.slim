@@ -9,7 +9,7 @@
       - if @review.user.id == current_user.id
         .edit-page-link
           = link_to  "編集",edit_book_review_path(@book.id, @review.id), class: 'btn btn-primary mr-3'
-        .delete-note-link 
+        .delete-note-link
         = link_to "削除", book_review_path(@book.id, @review.id), method: :delete,data: { confirm: "#{@book.title}の読書行動文を削除します。よろしいですか？" }, class: 'btn btn-danger'
 
   .slide
@@ -39,8 +39,15 @@
     .action-plan-area
       =@review.plan_future
 
+    h2.slide-title
+      = Review.human_attribute_name(:spot_photo)
+    .action-plan-area
+    - if @review.images.attached?
+      - @review.images.each do |image|
+        = image_tag image,:width => "525px", :height => "590px"
+        / = image_tag image.variant(resize_to_limit: [100, 100]),:width => "523px", :height => "500px"
+
   - if user_signed_in?
-  /  td id='like-link_#{ @review.id }'
   div id='like_#{ @review.id }'
     = render partial: 'likes', locals: {review: @review, book: @book,　likes: @likes }
 
