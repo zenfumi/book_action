@@ -1,24 +1,88 @@
-# README
+# 読書行動文
+ 読書内容を行動文（メモ）としてアウトプットすることで行動を促し、また行動の進捗管理できるアプリです。<br>
+ （トップページ準備中）<br>
+ 
+# URL
+(URL準備中) <br>
+（ゲストログインの案内準備中）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 使用技術一覧
+- フロントサイド
+  - HTML (slim,erb)
+  - css (sass)
+  - JavaScript (Jquery)
 
-Things you may want to cover:
+- バックエンド
+  - Ruby (2.6.3)
+  - Ruby on Rails (6.0.3)
 
-* Ruby version
+- ユーザー関連
+  - device
 
-* System dependencies
+- 画像関連
+  - ActiveStrage
 
-* Configuration
+- サーバー
+  - Nginx
 
-* Database creation
+- DB
+  - MySQL(5.7)
 
-* Database initialization
+- インフラ・開発環境等
+  - AWS
+ 
+# AWS構成図(準備中)
 
-* How to run the test suite
+# 機能一覧
+- ユーザー登録、ログイン機能(devise)
+- 本の登録・編集機能
+- 投稿機能
+  - 画像投稿(ActiveRecord)
+  - シェア機能
+- いいね機能(Ajax)
+- フォロー機能(Ajax)
+- ページネーション機能(will_paginate)
+- 投稿ステータス管理機能
 
-* Services (job queues, cache servers, search engines, etc.)
+# 実装予定機能
+- コメント機能(Ajax)
+- 本の検索機能
+- Twitterログイン認証
+- Google Books API
 
-* Deployment instructions
+# テスト
+- (準備中)
 
-* ...
+# 制作背景
+ 「読書は行動に移してこそ意味がある」との考えから読む目的やアクションプランを紙(※)に書いて本に挟んでおりましたが、本が手元にないと進捗管理ができないという悩みを抱えておりました。しかし、本を読んで”行動”に繋げることを促すWEBアプリはあまりないと感じました。（読書を”管理”できるアプリはたくさんある）そういった自身の悩みに加えて、多くの読書術に「本の目的、アクションプランを定める」「アウトプット」が大事とされていることから、【目的・アクションプラン等、行動に繋げる為の要素をメモとして投稿（アウトプット）できるWEBサービスを作りたい】と思ったのが作成経緯となります。
+ 
+※紙媒体のシートを書いておりました。（https://gyazo.com/ad4e5204e905b18870533e680bcc1253）
+
+サービス設計・概要の詳細は、リーンキャンバス参照(https://app.bizmake.jp/share/Lean/6398/sf60hf)
+
+
+# 工夫した点
+・入力項目は、行動に繋げる為の項目（アクション・目標等）のみに絞っている
+
+→「ACTION　READING」という効果的な読書の方法が書かれている本の付録についているチャレンジングシート（上記URL参照）の項目をベースに多くの読書術を参考に入力項目を決定
+
+→「ACTION　READING」という本のFaceBookコミュニティ（3115名）で使ってもらうことを想定して作成している。
+
+ FaceBookコミュニティのURL（https://www.facebook.com/groups/100234803720559/）
+
+・読書後の「行動達成率」を高める為に、投稿の進捗管理機能を実装している
+
+→本に紐づく投稿を「行動中」「習慣化」「達成」のタブに分け、進捗管理を行えるようにしている。
+
+・読書後の「行動達成率」を高める為に、SNSにシェアできる機能・他のユーザへのコメント・いいね機能を実装している
+
+→投稿内容をSNSシェア機能により、自身で落とし込んだ内容を発信することにより行動に強制力を持たせることができる。他のユーザへのコメント機能・いいね機能により、他の利用者から刺激を受けることができる。
+
+
+
+
+
+
+
+
+
