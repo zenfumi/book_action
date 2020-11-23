@@ -212,7 +212,10 @@ $marker_blue: #a8ebff;
 /* universal */
 
 body {
-  padding-top: 60px;
+  padding-top: 0px;
+  background-color:#143d38;
+  <%# 追加 %>
+  <%# color: black; %>
 }
 
 section {
@@ -353,6 +356,20 @@ footer ul li {
   .no-image {
     @include no_image;
   }
+}
+
+.jumbotron {
+  background-image: url("<%= asset_path('15223533_p2_master1200.jpg') %>");
+}
+
+.icon_images {
+  width: 66px;
+  height: 66px;
+  //サイズ指定
+  border-radius: 100px;
+  //画像を丸くする
+  object-fit: cover;
+  //タテヨコ比を変えないままトリミング
 }
 
 /* book_show_page */
@@ -533,6 +550,8 @@ footer ul li {
     margin-bottom: 5px;
     display: flex;
     justify-content: space-between;
+    <%# 追加 %>
+    color:black;
     &__user {
       font-size: 20px;
     }
@@ -545,6 +564,8 @@ footer ul li {
     }
   }
   .note-content {
+    <%# 追加 %>
+    color:black;
     &__title {
       font-size: 18px;
       white-space: nowrap;
@@ -576,7 +597,7 @@ footer ul li {
     width: 170px;
     padding: 5px;
     text-decoration: none;
-    color: $gray;
+    color: #fff;
   }
   .note-edit-area {
     display: flex;
@@ -768,6 +789,16 @@ footer ul li {
 
 
 /* users/show ================================ */
+.icon_image {
+  width: 200px;
+  height: 200px;
+  //サイズ指定
+  border-radius: 100px;
+  //画像を丸くする
+  object-fit: cover;
+  //タテヨコ比を変えないままトリミング
+}
+
 .main-content {
   .tabs-area {
     max-width: 1000px;

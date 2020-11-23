@@ -42,7 +42,6 @@ class ReviewsController < ApplicationController
     # @review = current_user.reviews.find(params[:id])
     @review = Review.find(params[:id])
     if @review.update(review_params)
-       #遷移先、動作確認すること
       redirect_to book_path(@book), notice:"読書行動文を更新しました。"
     else
       render 'reviews/edit'
@@ -65,7 +64,8 @@ class ReviewsController < ApplicationController
         :plan_future,
         :spot_photo,
         :user_id,
-        :completed
+        :completed,
+        images: []
         ).merge(book_id:params[:book_id])
         .merge(user_id:current_user.id)
     end

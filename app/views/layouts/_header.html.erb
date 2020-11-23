@@ -1,0 +1,49 @@
+<body class="c-body">
+  <header class="c-header pr16 pl16 flex">
+  <a class="text-line-none text-white" href="/">
+  <%# <img class="c-header_logo mt16 mb16" alt="Bukumo" src="app/assets/images/読書行動文 (1).png"> %>
+  <%= image_tag '読書行動文 (1).png', class:'c-header_logo mt16 mb16', alt:'読書行動文'%>
+  </a>
+  <div class="c-header_search">
+    <div>
+      <form action="/memo/index" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+        <input type="text" name="q" id="q" value="" placeholder="書籍名で検索" />
+      </form>
+  </div>
+  </div>
+
+  <div class="c-menu tar" id="jsi-menu">
+    <!-- Navigation -->
+  <a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+    <% if current_user %>
+    <li class="sidebar-nav-item">
+    <li class="sidebar-brand">
+    <%= link_to current_user.username,"/users/#{current_user.id}",class: 'js-scroll-trigger' %>
+    </li>
+    <%= link_to "読書行動文の使い方",about_path %>
+    </li>
+    <li class="sidebar-nav-item">
+    <%= link_to "本を登録する", new_book_path %>
+    </li>
+    <li class="sidebar-nav-item">
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    </li>
+    <% else %>
+      <li class="sidebar-nav-item">
+       <%= link_to "新規登録", new_user_registration_path %>
+      </li>
+      <li class="sidebar-nav-item">
+        <%= link_to "ログイン",new_user_session_path %>
+      </li>
+      <li class="sidebar-nav-item">
+        <%= link_to "読書行動文の使い方",about_path %>
+      </li>
+    <% end %>
+    </ul>
+  </nav>
+  </div>
+</header>

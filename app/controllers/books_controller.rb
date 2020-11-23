@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
   def index
     @books = Book.all
+    @users = User.all
+    # @users = User.paginate(page: params[:page])
   end
 
   def show
@@ -37,7 +39,6 @@ class BooksController < ApplicationController
       render 'edit'
     end
   end
-
 
   private
   

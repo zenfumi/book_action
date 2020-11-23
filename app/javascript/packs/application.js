@@ -1,4 +1,7 @@
 window.$ = $
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
 // This file is automatically compiled by Webpack, along with any other files
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
@@ -11,7 +14,8 @@ require("@rails/activestorage").start()
 require("channels")
 require('jquery')
 require('javascripts/users_book_tab.js')
-
+require('javascripts/top_side_bar.js')
+require("bootstrap/dist/js/bootstrap")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

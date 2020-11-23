@@ -24,4 +24,8 @@ h1　読書行動文の編集
     = f.label :completed
     = f.select :completed, [['行動中',0],['習慣化',1],['達成',2]], {}, class: 'form-control', id: 'review_completed'
 
+  .form-group
+  = f.label :images
+  = f.file_field :images, multiple: true, class: 'form-control'
+
   = f.submit nil,class: 'btn btn-primary'
