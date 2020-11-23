@@ -45,7 +45,6 @@
     - if @review.images.attached?
       - @review.images.each do |image|
         = image_tag image,:width => "525px", :height => "590px"
-        / = image_tag image.variant(resize_to_limit: [100, 100]),:width => "523px", :height => "500px"
 
   - if user_signed_in?
   div id='like_#{ @review.id }'
