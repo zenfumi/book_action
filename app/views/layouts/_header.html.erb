@@ -4,13 +4,13 @@
   <%# <img class="c-header_logo mt16 mb16" alt="Bukumo" src="app/assets/images/読書行動文 (1).png"> %>
   <%= image_tag '読書行動文 (1).png', class:'c-header_logo mt16 mb16', alt:'読書行動文'%>
   </a>
-  <div class="c-header_search">
-    <div>
-      <form action="/memo/index" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-        <input type="text" name="q" id="q" value="" placeholder="書籍名で検索" />
-      </form>
-  </div>
-  </div>
+
+  <dl class="searchbox">
+  <%= search_form_for search do |f| %>
+  <dt><%= f.text_field :title_eq ,placeholder: '検索するテキストを入力...' %></dt>
+  <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+  <% end %>
+  </dl>
 
   <div class="c-menu tar" id="jsi-menu">
     <!-- Navigation -->
