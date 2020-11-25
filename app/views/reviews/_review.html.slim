@@ -18,43 +18,6 @@
     = Review.human_attribute_name(:plan_future)
     = "：#{review.plan_future}"
 
-/ Railsチュートリアル素材
-/ li id="review-#{review.id}"
-/   = link_to "#", review.user
-/   span.user= link_to review.user.username, review.user
-/   span.review= review.purpose
-/   span.review= review.memo
-/   span.review= review.plan_now
-/   span.review= review.plan_future
-/   span.timestamp
-/     | Posted #{time_ago_in_words(review.created_at)} ago.
-/   -if current_user?(review.user)
-/     = link_to "delete", book_review_path(review), method: :delete, \
-/     data: { confirm: "You sure?" }
-/     = link_to "編集" ,edit_book_review_path(review)
-
-
-/ 現場Rails 参考
-/ table.table.table-hover
-/   tbody
-/     tr
-/       th= Review.human_attribute_name(:purpose)
-/       td= review.id
-/     tr
-/       th= Review.human_attribute_name(:memo)
-/       td= review.memo
-/       / td= auto_link(simple_format(h(review.memo), {}, sanitize: false, wrapper_tag: "div"))
-/     tr
-/       th= Review.human_attribute_name(:plan_now)
-/       td= review.plan_now
-
-/     tr
-/       th= Review.human_attribute_name(:plan_future)
-/       td= review.plan_future
-
-/ = link_to '編集', edit_task_path, class: 'btn btn-primary mr-3'
-/ = link_to '削除', @task, method: :delete, data: { confirm: "タスク「#{@task.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
-
 
 
 

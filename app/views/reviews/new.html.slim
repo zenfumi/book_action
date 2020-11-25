@@ -21,8 +21,8 @@ h1　読書行動文の登録
     = f.text_area :plan_future,rows: 3, class:'form-control', id:'review_plan_future'
 
   .form-group
-    = f.label :spot_photo
-    = f.file_field :spot_photo,class: 'form-control'
+    = f.label :images
+    = f.file_field :images, multiple: true, class: 'form-control'
 
   .form-group
     = f.hidden_field :completed,:value => 0, id: 'review_completed'

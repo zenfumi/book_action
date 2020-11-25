@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
   def index
     @books = Book.all
+    @users = User.all
+    # @users = User.paginate(page: params[:page])
   end
 
   def show
@@ -38,9 +40,8 @@ class BooksController < ApplicationController
     end
   end
 
-
   private
-
+  
     def book_params
       params.require(:book).permit(:image, :title, :author)
     end

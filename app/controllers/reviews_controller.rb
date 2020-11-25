@@ -9,6 +9,12 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+    @likes = Like.where(review_id: params[:id])
+    if Like.find_by(user_id:current_user.id, review_id:@review.id)
+      @like = Like.find_by(review_id: @review.id, user_id: current_user.id)
+    else
+      @like = Like.new
+    end
   end
 
   def new
@@ -36,7 +42,6 @@ class ReviewsController < ApplicationController
     # @review = current_user.reviews.find(params[:id])
     @review = Review.find(params[:id])
     if @review.update(review_params)
-       #遷移先、動作確認すること
       redirect_to book_path(@book), notice:"読書行動文を更新しました。"
     else
       render 'reviews/edit'
@@ -59,7 +64,8 @@ class ReviewsController < ApplicationController
         :plan_future,
         :spot_photo,
         :user_id,
-        :completed
+        :completed,
+        images: []
         ).merge(book_id:params[:book_id])
         .merge(user_id:current_user.id)
     end
