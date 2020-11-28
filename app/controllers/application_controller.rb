@@ -5,11 +5,11 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @search = Book.ransack(params[:q])
-    @search_books = @search.result(distinct: true)
+    @search_books = @search.result
   end
 
 
- 
+
   protected
 
   def configure_permitted_parameters

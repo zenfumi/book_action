@@ -14,7 +14,11 @@
 </div>
 
 <div class="book-index">
-   <%= render partial: 'static_pages/book', collection: @books%>
+<% if @search_books %>
+  <%= render partial: 'static_pages/book', collection: @search_books%>
+<% else %>
+  <%= render partial: 'static_pages/book', collection: @books%>
+<% end %>
 </div>
 
 <section class="pt24 pb24">
