@@ -11,6 +11,5 @@ private
 def comment_params
   params.require(:comment).permit(:content).merge(review_id: params[:review_id])
 end
-
 end
 
