@@ -54,3 +54,22 @@
   = link_to "https://twitter.com/share?url=#{ request.url }&text=「#{@book.title}」の読書行動文#{@review.user.username}今からやること：#{@review.plan_now} 3ヶ月後に何をするか、どうなりたいか:#{@review.plan_future} &hashtags=読書行動文", class: 'btn btn-default', target: '_blank' do
     i.fab.fa-twitter style='color: #3399FF;'
     |  Twitterでシェア
+
+.comments-wrapper
+  .comment-form
+    = form_with(model: [@book, @review, @comment], local: true) do |f|
+      .form-area
+        = f.text_field :content, placeholder: "コメントを入力してください", class: "comment-form-area" 
+      .btn-area
+        = f.submit "送信", class: "comment-submit-btn"
+
+  .comments
+    - if @comments.present?
+      p コメント一覧
+      - @comments.each do |comment|
+        .comment
+          .comment__content
+            = comment.content
+          .comment__info
+            = comment.user.username
+            = comment.created_at.to_s(:date)
