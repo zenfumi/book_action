@@ -9,6 +9,8 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+    @comments = @review.comments
+    @comment = Comment.new
     @likes = Like.where(review_id: params[:id])
     if Like.find_by(user_id:current_user.id, review_id:@review.id)
       @like = Like.find_by(review_id: @review.id, user_id: current_user.id)
@@ -80,5 +82,4 @@ class ReviewsController < ApplicationController
        @book = Book.find(params[:book_id])
      end
   
-    
 end

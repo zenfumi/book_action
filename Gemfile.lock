@@ -334,6 +334,7 @@ DEPENDENCIES
   html2slim
   jbuilder (~> 2.7)
   jquery-rails
+  kgio
   listen (~> 3.2)
   mini_magick
   mysql2 (>= 0.4.4)
