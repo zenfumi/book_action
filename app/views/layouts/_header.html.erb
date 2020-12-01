@@ -21,8 +21,9 @@
     <% if current_user %>
     <li class="sidebar-nav-item">
     <li class="sidebar-brand">
-    <%= link_to current_user.username,"/users/#{current_user.id}",class: 'js-scroll-trigger' %>
+    <%= link_to "#{current_user.username}さんの行動管理簿","/users/#{current_user.id}",class: 'js-scroll-trigger' %>
     </li>
+    <li class="sidebar-nav-item">
     <%= link_to "読書行動文の使い方",about_path %>
     </li>
     <li class="sidebar-nav-item">
@@ -33,7 +34,7 @@
     </li>
     <% else %>
       <li class="sidebar-nav-item">
-       <%= link_to "新規登録", new_user_registration_path %>
+      <%= link_to "新規登録", new_user_registration_path %>
       </li>
       <li class="sidebar-nav-item">
         <%= link_to "ログイン",new_user_session_path %>
