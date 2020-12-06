@@ -50,6 +50,7 @@ test:
 production:
   <<: *default
   database: book_action_production
+  username: root
   # username: <%= ENV["DB_USERNAME"] %>
   # password: <%= ENV["DB_PASSWORD"] %>
   password: <%= Rails.application.credentials.db[:password] %>
