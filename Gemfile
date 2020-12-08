@@ -51,7 +51,7 @@ group :development do
   gem "capistrano-rails", "~> 1.6", require: false
   gem 'capistrano-rbenv', '~> 2.2'
   gem 'capistrano-rbenv-vars', '~> 0.1'
-  gem 'capistrano3-puma'
+  gem 'capistrano3-puma', '<= 5.0.1'
 end
 
 group :test do
