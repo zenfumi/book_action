@@ -120,7 +120,7 @@ $marker_blue: #a8ebff;
   }
 }
 
-@mixin btn($bColor: $light_blue, $fColor: $white, $fSize: 15px) {
+@mixin btn($bColor: #c66719, $fColor: $white, $fSize: 15px) {
   font-size: $fSize;
   background-color: $bColor;
   color: $fColor;
@@ -149,7 +149,7 @@ $marker_blue: #a8ebff;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   color: #fff;
-  background-color: $light_blue;
+  background-color: #c66719;
 }
 
 @mixin section-content {
@@ -630,8 +630,9 @@ footer ul li {
     padding: 20px 0;
     margin-bottom: 10px;
     &__book-title {
-      color: $light_blue;
+      color: #fff;
       text-align: center;
+      font-size: 18px;
     }
     &__user-name {
       font-size: 18px;
@@ -828,7 +829,7 @@ footer ul li {
       cursor: pointer;
     }
     .books-menu-tab.active {
-      background-color: $light_blue;
+      background-color: #c66719;
     }
   }
 }
