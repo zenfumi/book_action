@@ -1,4 +1,4 @@
-h1　読書行動文の登録
+h1　読書行動文の提出
 
 .nav.justify-content-end
 
@@ -27,4 +27,5 @@ h1　読書行動文の登録
   .form-group
     = f.hidden_field :completed,:value => 0, id: 'review_completed'
 
-  = f.submit nil,class: 'btn btn-primary'
+  .col.text-center
+    = f.submit nil,class: 'btn btn-primary'

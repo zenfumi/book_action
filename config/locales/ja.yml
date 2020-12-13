@@ -20,6 +20,7 @@ ja:
         created_at: 登録日時
         updated_at: 更新日時
         completed: 進捗状況
+        images: 心に刻みたいページ
 
       book:
         id: ID

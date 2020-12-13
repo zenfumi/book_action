@@ -1,4 +1,4 @@
-h1　読書行動文の編集
+h1　読書行動文の編集&進捗状況変更
 
 .nav.justify-content-end
 
@@ -28,4 +28,5 @@ h1　読書行動文の編集
   = f.label :images
   = f.file_field :images, multiple: true, class: 'form-control'
 
-  = f.submit nil,class: 'btn btn-primary'
+  .col.text-center
+    = f.submit nil,class: 'btn btn-primary'
