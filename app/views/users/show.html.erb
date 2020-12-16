@@ -1,49 +1,49 @@
 <main class="c-main pb32">
   <div class="col-xs-12 col-sm-6 offset-sm-3 pt32 pr0 pl0">
-  <section class="c-profile tal mb24 pr24 pl24" id="jsi-profile">
-  <div class="flex mb8">
-    <a href="#" class="c-profile_image mb8 mr12">
-    <%= image_tag @user.image.to_s, class:'icon_image'%>
-    </a>
-  </div>
-  <div class="flex">
-    <div class="c-profile_nicknameArea">
-      <p class="c-profile_nickname mb4">
-        <span v-if="user.private_flg"></span>
-        <%= link_to current_user.username,"/users/#{current_user.id}",class: 'js-scroll-trigger' %>
-      </p>
+    <section class="c-profile tal mb24 pr24 pl24" id="jsi-profile">
+      <div class="flex mb8">
+        <a href="#" class="c-profile_image mb8 mr12">
+          <%= image_tag @user.image.to_s, class:'icon_image'%>
+        </a>
+      </div>
+      <div class="flex">
+        <div class="c-profile_nicknameArea">
+          <p class="c-profile_nickname mb4">
+            <span v-if="user.private_flg"></span>
+            <%= link_to "#{current_user.username}さんの行動管理簿","/users/#{current_user.id}",class: 'js-scroll-trigger' %>
+          </p>
+        </div>
+        <p class="tar wf">
+          <%= link_to "編集", edit_user_registration_path , class: "btn btn-primary" %>
+        </p>
+      </div>
+
+    </section>
+
+    <div class="main-content">
+      <div class="tabs-area">
+        <div class="content-tabs">
+          <div class="books-menu-tab active"> 全て</div>
+          <div class="books-menu-tab">行動中</div>
+          <div class="books-menu-tab">習慣化 </div>
+          <div class="books-menu-tab"> 達成</div>
+        </div>
+      </div>
+
+      <div class="note-area">
+        <div class="user-books-area show">
+          <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
+        </div>
+        <div class="user-books-area">
+          <% @reviews = Review.where(user_id: @user.id, completed: 0) %>
+          <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
+        </div>
+        <div class="user-books-area">
+          <% @reviews = Review.where(user_id: @user.id, completed: 1) %>
+          <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
+        </div>
+        <div class="user-books-area">
+          <% @reviews = Review.where(user_id: @user.id, completed: 2) %>
+          <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %> </div>
+      </div>
     </div>
-      <p class="tar wf">
-        <%= link_to "編集", edit_user_registration_path , class: "btn btn-primary" %>
-      </p>
-  </div>
-
-</section>
-
-<div class="main-content">
-  <div class="tabs-area">
-    <div class="content-tabs">
-      <div class="books-menu-tab active"> 全て</div>
-      <div class="books-menu-tab">行動中</div>
-      <div class="books-menu-tab">習慣化 </div>
-      <div class="books-menu-tab"> 達成</div>
-  </div>
-</div>
-
-<div class="note-area">
-  <div class="user-books-area show">
-    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
-  </div>
-  <div class="user-books-area">
-    <% @reviews = Review.where(user_id: @user.id, completed: 0) %>
-    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
-  </div>
-  <div class="user-books-area">
-    <% @reviews = Review.where(user_id: @user.id, completed: 1) %>
-    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
-  </div>
-  <div class="user-books-area">
-    <% @reviews = Review.where(user_id: @user.id, completed: 2) %>
-    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %> </div>
-  </div>
-</div>
