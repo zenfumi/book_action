@@ -4,8 +4,9 @@ class User < ApplicationRecord
   has_many :comments
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # confirmableは現在オフとしており、記述していない。
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable
 
   mount_uploader :image, ImageUploader
 
