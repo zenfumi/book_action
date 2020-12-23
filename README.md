@@ -1,7 +1,7 @@
 # 読書行動文
 
 読書内容を行動文（メモ）としてアウトプットすることで行動を促し、また行動の進捗管理できるアプリです。<br>
-（トップページ準備中）<br>
+<img width="1432" alt="スクリーンショット 2020-12-23 10 29 24" src="https://user-images.githubusercontent.com/64763734/102948844-2e143d80-450a-11eb-8faf-4d7ed662d0a3.png"><br>
 
 # URL
 
@@ -42,7 +42,9 @@ https://book-action.com <br>
 - インフラ・開発環境等
   - AWS(VPC,RDS,EC2,Route 53,ACM,ALB,IAM）
 
-# AWS 構成図(準備中)
+# AWS 構成図
+
+![インフラ構成図](https://user-images.githubusercontent.com/64763734/102944922-9b6ea100-44ff-11eb-9ff6-fa9526ea25fc.png)
 
 # 機能一覧
 
@@ -59,7 +61,6 @@ https://book-action.com <br>
 
 # 実装予定機能
 
-- Twitter ログイン認証
 - Google Books API
 
 # テスト
