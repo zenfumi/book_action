@@ -14,7 +14,7 @@ https://book-action.com <br>
 
   - HTML (slim,erb)
   - css (sass)
-  - JavaScript (Jquery)
+  - JavaScript (JQuery)
 
 - バックエンド
 
