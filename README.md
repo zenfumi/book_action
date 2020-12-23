@@ -44,7 +44,7 @@ https://book-action.com <br>
 
 # AWS 構成図
 
-![インフラ構成図](<![インフラ構成図](https://user-images.githubusercontent.com/64763734/102953786-708f4780-4515-11eb-9515-c538bc517729.png)>)
+![インフラ構成図](https://user-images.githubusercontent.com/64763734/102961188-0ed7d900-4527-11eb-89bc-d25caa9e4bdc.png)
 
 # 機能一覧
 
