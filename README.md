@@ -14,9 +14,9 @@ https://book-action.com <br>
 
 ※「ACTION READING」という本の付録のチャレンジシートというものを書いておりました。（https://gyazo.com/ad4e5204e905b18870533e680bcc1253）
 
-## 企画書
+# 企画書
 
-https://app.bizmake.jp/share/Lean/6398/sf60hf
+https://app.bizmake.jp/share/Lean/6398/sf60hf<br>
 → リーンキャンバスというビジネスフレームワークを用いて、本アプリの企画書を作成しております。
 
 # 使用技術一覧
@@ -55,7 +55,7 @@ https://app.bizmake.jp/share/Lean/6398/sf60hf
 
 # AWS(インフラ)構成図
 
-![インフラ構成図](<![インフラ構成図](https://user-images.githubusercontent.com/64763734/102953786-708f4780-4515-11eb-9515-c538bc517729.png)>)
+![インフラ構成図](https://user-images.githubusercontent.com/64763734/103096512-7dac5380-4647-11eb-85ae-97a5b5e317ad.png)
 
 # 機能一覧
 
