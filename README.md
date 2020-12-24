@@ -87,9 +87,9 @@ https://docs.google.com/document/d/1t8JoT4DorPv33eTaPerqBA4s8tT-d8fRMhV8USl3xO0/
 
 ・入力項目は、行動に繋げる為の項目（アクション・目標等）のみに絞っている
 
-→「ACTION 　 READING」という効果的な読書の方法が書かれている本の付録についているチャレンジングシート（上記 URL 参照）の項目をベースに多くの読書術を参考に入力項目を決定
+→「ACTION READING」という効果的な読書の方法が書かれている本の付録についているチャレンジングシート（上記 URL 参照）の項目をベースに多くの読書術を参考に入力項目を決定
 
-→「ACTION 　 READING」という本の FaceBook コミュニティ（3115 名）で使ってもらうことを想定して作成している。
+→「ACTION READING」という本の FaceBook コミュニティ（3115 名）で使ってもらうことを想定して作成している。
 
 FaceBook コミュニティの URL（https://www.facebook.com/groups/100234803720559/）
 
