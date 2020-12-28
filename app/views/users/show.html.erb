@@ -10,7 +10,7 @@
         <div class="c-profile_nicknameArea">
           <p class="c-profile_nickname mb4">
             <span v-if="user.private_flg"></span>
-            <%= link_to "#{@user.username}さんの行動管理簿", user_path(@user) ,class: 'js-scroll-trigger' %>
+            <%= link_to "#{@user.username}さんの行動管理簿", user_path(@user),class: 'js-scroll-trigger' %>
           </p>
         </div>
         <p class="tar wf">
