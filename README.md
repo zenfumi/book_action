@@ -14,8 +14,7 @@ https://book-action.com <br>
 
 ※「ACTION READING」という本の付録のチャレンジシート(紙媒体)というものを書いておりました。<br>
 → チャレンジシートのイメージ：https://gyazo.com/ad4e5204e905b18870533e680bcc1253<br>
-→ 「ACTION READING」は、効果的な読書の方法等が書かれている本で「読書行動文」の構想のベースとなっております。<br>
-→ 本の Amazon リンク：https://www.amazon.co.jp/dp/B01G6U99B8
+→ 「ACTION READING」(Amazon リンク：https://www.amazon.co.jp/dp/B01G6U99B8) は、効果的な読書の方法等が書かれている本で「読書行動文」の着想のベースとなっています。
 
 # 企画書
 
