@@ -18,7 +18,7 @@ https://book-action.com <br>
 
 # 企画書
 
-リーンキャンバスというビジネスフレームワークを用いて、本アプリの企画しております。<br>
+リーンキャンバスというビジネスフレームワークを用いて、本アプリの企画をしております。<br>
 ![lean-行動特化型読書記録アプリ](https://user-images.githubusercontent.com/64763734/103259686-d11ef880-49dd-11eb-85ad-67bb6a6a87c9.jpg)<br>
 詳細は、こちらの URL をご覧下さい。<br>
 https://app.bizmake.jp/share/Lean/6398/sf60hf （※Biz Make の新規登録(無料)が必要となります。）
