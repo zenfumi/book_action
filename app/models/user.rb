@@ -17,4 +17,8 @@ class User < ApplicationRecord
     end
   end
 
+  def desp_name
+    "{name}さん"
+  end
+
 end
