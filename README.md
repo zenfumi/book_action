@@ -56,6 +56,7 @@ https://app.bizmake.jp/share/Lean/6398/sf60hf （※Biz Make の新規登録(無
 
 - インフラ・開発環境等
   - AWS(VPC,RDS,EC2,Route 53,ACM,ALB,IAM）
+  - Capistrano
 
 # AWS(インフラ)構成図
 
