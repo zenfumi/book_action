@@ -37,7 +37,13 @@ gem 'devise-bootstrap-views', '~> 1.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Rails用のテストフレームワーク
   gem 'rspec-rails'
+  # モデルに関するテストデータ作成用
+  gem 'factory_bot_rails'
+  # デバッグ用
+  gem 'pry-byebug'
+  gem 'pry-doc'
   gem 'pry-rails'
 end
 
