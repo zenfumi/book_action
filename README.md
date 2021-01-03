@@ -82,7 +82,7 @@ https://app.bizmake.jp/share/Lean/6398/sf60hf （※Biz Make の新規登録(無
 
 # テスト
 
-- Rspec にて実装予定
+- Rspec にて実装中
 
 # ER 図
 

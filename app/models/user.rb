@@ -17,23 +17,12 @@ class User < ApplicationRecord
     end
   end
 
-## RSpec 動作テスト
-  attr_accessor :name, :age
+#バリデーション
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
+  validates :username, presence:true, length: {maximum: 30}
+  validates :email,
+            presence:true,
+            length: { maximum: 255 },
+            format: { with: VALID_EMAIL_REGEX }
 
-  def initialize(name: ,age:)
-    self.name = name
-    self.age = age
-  end
-
-  def disp_name
-    if self.age > 19
-      return "#{self.name}さん"
-    elsif self.age > 10
-      return "#{self.name}君"
-    elsif self.age > 0
-      return "#{self.name}ちゃん"
-    else
-      return "不正な値です"
-    end
-  end
 end
