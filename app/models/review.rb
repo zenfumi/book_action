@@ -7,7 +7,7 @@ class Review < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :memo, presence: true, length: { maximum: 140 }
-  validates :purpose, presence: true
-  validates :plan_now, presence: true
-  validates :plan_future, presence: true
+  validates :purpose, presence: true, length: { maximum: 100 }
+  validates :plan_now, presence: true, length: { maximum: 100 }
+  validates :plan_future, presence: true, length: { maximum: 100 }
 end
