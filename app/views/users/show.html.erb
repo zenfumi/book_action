@@ -3,7 +3,11 @@
     <section class="c-profile tal mb24 pr24 pl24" id="jsi-profile">
       <div class="flex mb8">
         <a href="#" class="c-profile_image mb8 mr12">
+          <% if @user.image.present? %>
           <%= image_tag @user.image.to_s, class:'icon_image'%>
+          <% else %>
+          <%= image_tag "未設定_アイコン画像.png", class:'icon_image'%>
+          <% end %>
         </a>
       </div>
       <div class="flex">
