@@ -1,15 +1,14 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :new, :create, :edit, :update]
+
   def index
     @books = Book.all
     @users = User.all
-    # @users = User.paginate(page: params[:page])
   end
 
   def show
     @book = Book.find(params[:id])
-    #book_idを含む投稿をしてみる。
     @reviews = Review.where(book_id: @book.id).includes(:user)
-
   end
 
   def new
@@ -25,12 +24,12 @@ class BooksController < ApplicationController
     render 'new'
     end
   end
-  
+
   def edit
     @book = Book.find(params[:id])
   end
 
-  
+
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
@@ -41,7 +40,7 @@ class BooksController < ApplicationController
   end
 
   private
-  
+
     def book_params
       params.require(:book).permit(:image, :title, :author)
     end
