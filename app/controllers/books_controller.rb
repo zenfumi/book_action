@@ -39,6 +39,28 @@ class BooksController < ApplicationController
     end
   end
 
+  # def destroy
+  #   @book = Book.find(params[:id])
+  #   if @book.reviews
+  #     flash[:alert] = "読書行動文があるため、取消できません。"
+  #     redirect_to book_review_path(@book.id)
+  #   elseif @book.user
+  #     @book.destroy
+  #     redirect_to books_path
+  #   end
+  # end
+
+  # def destroy
+  #   @book_user = BookUser.find(params[:id])
+  #   if Note.find_by(book_id: @book_user.book_id, user_id: current_user.id)
+  #     flash[:alert] = "ノートを作成済みのため取り消せません"
+  #     redirect_to book_notes_path(@book_user.book_id)
+  #   else
+  #     @book_user.destroy
+  #     redirect_to book_notes_path(@book_user.book_id)
+  #   end
+  # end
+
   private
 
     def book_params

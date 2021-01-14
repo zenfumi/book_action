@@ -7,7 +7,7 @@
   <div class="form-group">
     <%= f.label :image %>
     <span class="image">
-    <%= f.file_field :image, class:'form-control' %>
+      <%= f.file_field :image, class:'form-control' %>
     </span>
   </div>
 
@@ -25,4 +25,9 @@
     <%= f.submit "本を編集する", class: 'btn btn-primary btn-block'  %>
   </div>
   <% end %>
+
+  <div class="form-group">
+    <%= link_to "本を削除する", book_review_path(@book.id), method: :delete, data:{ confirm: "本当に削除しますか"}, class: 'btn btn-danger btn-block'  %>
+  </div>
+
 </div>
