@@ -49,11 +49,11 @@ class ReviewsController < ApplicationController
       render 'reviews/edit'
     end
   end
-  
+
   def destroy
     @review.destroy
-    flash[:notice] = "reviews deleted"
-    redirect_to request.referrer ||　review　　
+    flash[:notice] = "読書行動文を削除しました"
+    redirect_to books_path
   end
 
 

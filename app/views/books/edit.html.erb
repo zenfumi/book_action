@@ -27,7 +27,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= link_to "本を削除する", book_review_path(@book.id), method: :delete, data:{ confirm: "本当に削除しますか"}, class: 'btn btn-danger btn-block'  %>
+    <%= link_to "本を削除する", book_path(@book.id), method: :delete, data:{ confirm: "本当に削除しますか"}, class: 'btn btn-danger btn-block'  %>
   </div>
 
 </div>

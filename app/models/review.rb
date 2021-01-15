@@ -3,7 +3,7 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :book
   has_many :likes, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :memo, presence: true, length: { maximum: 140 }

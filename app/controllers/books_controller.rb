@@ -16,7 +16,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
+    @book = current_user.books.new(book_params)
     @book.image.attach(params[:book][:image])
     if @book.save
     redirect_to books_path, notice:"「#{@book.title}」を登録しました。"
@@ -39,16 +39,19 @@ class BooksController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @book = Book.find(params[:id])
-  #   if @book.reviews
-  #     flash[:alert] = "読書行動文があるため、取消できません。"
-  #     redirect_to book_review_path(@book.id)
-  #   elseif @book.user
-  #     @book.destroy
-  #     redirect_to books_path
-  #   end
-  # end
+  def destroy
+    @book = Book.find(params[:id])
+      if @book.reviews
+        flash[:alert] = "読書行動文があるため、取消できません。"
+        redirect_to edit_book_path(@book.id)
+      elsif @book.user == current_user
+        @book.destroy
+        redirect_to books_path
+      else
+        flash[:alert] = "登録者でない為、取消できません。"
+        redirect_to edit_book_path(@book.id)
+      end
+  end
 
   # def destroy
   #   @book_user = BookUser.find(params[:id])
