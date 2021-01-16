@@ -19,6 +19,25 @@
     = "：#{review.plan_future}"
 
 
+/ .note-wrapper
+/   = link_to "", book_review_path(review.book_id,review), class: "note-link"
+/   .note-info
+/     .note-info__user
+/       = "#{review.user.username}さんの読書行動文"
+/   .note-content
+/     .note-content__title
+/     = Review.human_attribute_name(:purpose)
+/     = "：#{review.purpose}"
+/     .note-content__content
+/     = Review.human_attribute_name(:memo)
+/     = "：#{review.memo}"
+/     .note-content__content
+/     = Review.human_attribute_name(:plan_now)
+/     = "：#{review.plan_now}"
+/     .note-content__content
+/     / = "3ヶ月にどうありたいか："
+/     = Review.human_attribute_name(:plan_future)
+/     = "：#{review.plan_future}"
 
 
 
