@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     if @review.save
-      #遷移先、動作確認すること
+      flash[:notice] = "読書行動文を登録しました"
       redirect_to book_path(@book)
     else
       render 'reviews/new'
@@ -52,7 +52,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    flash[:notice] = "読書行動文を削除しました"
+    flash[:alert] = "読書行動文を削除しました"
     redirect_to books_path
   end
 

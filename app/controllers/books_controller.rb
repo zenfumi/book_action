@@ -41,28 +41,18 @@ class BooksController < ApplicationController
 
   def destroy
     @book = Book.find(params[:id])
-      if @book.reviews
+      if @book.reviews.present?
         flash[:alert] = "読書行動文があるため、取消できません。"
         redirect_to edit_book_path(@book.id)
       elsif @book.user == current_user
         @book.destroy
+        flash[:alert] = "読書行動文を削除しました"
         redirect_to books_path
       else
-        flash[:alert] = "登録者でない為、取消できません。"
+        flash[:alert] = "本の登録者でない為、取消できません。"
         redirect_to edit_book_path(@book.id)
       end
   end
-
-  # def destroy
-  #   @book_user = BookUser.find(params[:id])
-  #   if Note.find_by(book_id: @book_user.book_id, user_id: current_user.id)
-  #     flash[:alert] = "ノートを作成済みのため取り消せません"
-  #     redirect_to book_notes_path(@book_user.book_id)
-  #   else
-  #     @book_user.destroy
-  #     redirect_to book_notes_path(@book_user.book_id)
-  #   end
-  # end
 
   private
 
