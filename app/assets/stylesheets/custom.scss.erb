@@ -7,9 +7,9 @@ $marker_blue: #a8ebff;
 
 /* mixin */
 @mixin box_sizing {
-  -moz-box-sizing:    border-box;
+  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+  box-sizing: border-box;
 }
 
 @mixin book_index {
@@ -19,12 +19,14 @@ $marker_blue: #a8ebff;
   grid-auto-rows: 300px;
   grid-template-columns: repeat(auto-fit, 180px);
   justify-content: center;
+
   .book-area {
     width: 120px;
     height: 170px;
     margin: 0 30px;
     color: $light_blue;
     position: relative;
+
     &__link {
       display: block;
       width: 100%;
@@ -33,13 +35,16 @@ $marker_blue: #a8ebff;
       top: 0;
       left: 0;
     }
+
     &__image {
       width: 120px;
       height: 170px;
+
       img {
         object-fit: contain;
       }
     }
+
     &__title {
       font-size: 15px;
       display: -webkit-box;
@@ -48,6 +53,7 @@ $marker_blue: #a8ebff;
       -webkit-box-orient: vertical;
       color: white;
     }
+
     &__author {
       font-size: 12px;
       white-space: nowrap;
@@ -65,12 +71,14 @@ $marker_blue: #a8ebff;
   grid-auto-rows: 300px;
   grid-template-columns: repeat(auto-fit, 180px);
   justify-content: center;
+
   .book-area {
     width: 120px;
     height: 170px;
     margin: 0 30px;
     color: $light_blue;
     position: relative;
+
     &__link {
       display: block;
       width: 100%;
@@ -79,13 +87,16 @@ $marker_blue: #a8ebff;
       top: 0;
       left: 0;
     }
+
     &__image {
       width: 120px;
       height: 170px;
+
       img {
         object-fit: contain;
       }
     }
+
     &__title {
       font-size: 15px;
       display: -webkit-box;
@@ -93,6 +104,7 @@ $marker_blue: #a8ebff;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
     }
+
     &__author {
       font-size: 12px;
       white-space: nowrap;
@@ -108,12 +120,14 @@ $marker_blue: #a8ebff;
   background-color: #dddddd;
   height: 170px;
   color: white;
+
   .pic-icon {
     display: block;
     font-size: 30px;
     text-align: center;
     margin: 0 auto;
   }
+
   .msg {
     font-size: 18px;
     text-align: center;
@@ -126,7 +140,7 @@ $marker_blue: #a8ebff;
   color: $fColor;
   border-radius: 5px;
   border-bottom: solid 4px #46707c;
-  outline:0;
+  outline: 0;
   display: inline-block;
   text-decoration: none;
   text-align: center;
@@ -162,7 +176,7 @@ $marker_blue: #a8ebff;
 }
 
 @mixin marker($color: $marker_blue) {
-  background: linear-gradient(transparent 70%,  $color 20%);
+  background: linear-gradient(transparent 70%, $color 20%);
 }
 
 @mixin note {
@@ -180,6 +194,7 @@ $marker_blue: #a8ebff;
   background: rgba(0, 0, 0, 0.3);
   display: none;
   z-index: 1;
+
   #modal-window {
     width: 300px;
     height: 100px;
@@ -192,18 +207,23 @@ $marker_blue: #a8ebff;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
     .modal-message-box {
       width: 100%;
       height: 60px;
       text-align: center;
       line-height: 60px;
     }
+
     #modal-close-btn {
       width: 50%;
       height: 40px;
     }
+
     #delete-comformation-btn {
-      &__note, &__form {
+
+      &__note,
+      &__form {
         width: 50%;
         height: 40px;
       }
@@ -215,9 +235,9 @@ $marker_blue: #a8ebff;
 
 body {
   padding-top: 0px;
-  background-color:#143d38;
-  <%# 追加 %>
-  <%# color: black; %>
+  background-color: #143d38;
+  <%# 追加 %><%# color: black;
+  %>
 }
 
 section {
@@ -238,7 +258,12 @@ textarea {
 
 /* typography */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1;
 }
 
@@ -327,6 +352,7 @@ footer ul li {
 .users {
   list-style: none;
   margin: 0;
+
   li {
     overflow: auto;
     padding: 10px 0;
@@ -337,6 +363,7 @@ footer ul li {
 /* forms */
 #error_explanation {
   color: red;
+
   ul {
     color: red;
     margin: 0 0 30px 0;
@@ -345,7 +372,7 @@ footer ul li {
 
 .field_with_errors {
   .form-control {
-      @extend .is-invalid;
+    @extend .is-invalid;
   }
 }
 
@@ -355,6 +382,7 @@ footer ul li {
   @include book_index;
   min-height: 80vh;
   margin-top: 10px;
+
   .no-image {
     @include no_image;
   }
@@ -363,7 +391,7 @@ footer ul li {
 .jumbotron {
   background-image: url("<%= asset_path('15223533_p2_master1200.jpg') %>");
   -webkit-animation: c_mv_scroll 60s linear infinite;
-          animation: c_mv_scroll 60s linear infinite;
+  animation: c_mv_scroll 60s linear infinite;
 }
 
 .icon_images {
@@ -378,36 +406,47 @@ footer ul li {
 
 /* book_show_page */
 
-@media (max-width: 800px){
+@media (max-width: 800px) {
   .contents {
     .left-content {
       width: 80vw;
       max-width: 600px;
       padding: 20px 0;
       margin: 0 auto;
+
       .book-area {
         display: flex;
-        .book-image, img {
+
+        .book-image,
+        img {
           width: 30vw;
           max-width: 150px;
           height: calc(30vw * 1.4);
           max-height: calc(150px * 1.4);
         }
+
         .book-info {
           margin-left: 5px;
         }
+
         .book-title {
           font-size: calc(10px + 2vw);
         }
+
         .book-author {
           font-size: calc(8px + 1vw);
         }
       }
     }
-    #book-register-link, .create-note-btn, .edit-book-btn, .finish-reading-btn {
+
+    #book-register-link,
+    .create-note-btn,
+    .edit-book-btn,
+    .finish-reading-btn {
       border: none;
       @include btn();
     }
+
     .right-content {
       width: 84vw;
       max-width: 600px;
@@ -417,35 +456,46 @@ footer ul li {
   }
 }
 
-@media (min-width: 801px){
+@media (min-width: 801px) {
   .contents {
     display: flex;
+
     .left-content {
       width: 260px;
       height: calc(100vh - 50px);
       padding: 50px 30px;
       max-width: 600px;
       margin: 0 auto;
+
       .book-area {
-        .book-image, img {
+
+        .book-image,
+        img {
           width: 200px;
           height: 280px;
           margin: 0 auto;
         }
+
         .book-title {
           font-size: 25px;
           color: white;
         }
+
         .book-author {
           font-size: 15px;
           color: white;
         }
       }
     }
-    #book-register-link, .create-note-btn, .edit-book-btn, .finish-reading-btn {
+
+    #book-register-link,
+    .create-note-btn,
+    .edit-book-btn,
+    .finish-reading-btn {
       border: none;
       @include btn();
     }
+
     .right-content {
       width: 100%;
       margin: 0 auto;
@@ -458,7 +508,12 @@ footer ul li {
 @media (max-width: 500px) {
   .left-content {
     .btn-area {
-      #book-register-link, .amazon-link-btn, .create-note-btn, .edit-book-btn, .finish-reading-btn {
+
+      #book-register-link,
+      .amazon-link-btn,
+      .create-note-btn,
+      .edit-book-btn,
+      .finish-reading-btn {
         width: 80vw;
       }
     }
@@ -471,17 +526,28 @@ footer ul li {
       display: grid;
       grid-template-columns: 33% 33% 33%;
       justify-content: space-between;
-      #book-register-link, .amazon-link-btn, .create-note-btn, .edit-book-btn, .finish-reading-btn {
+
+      #book-register-link,
+      .amazon-link-btn,
+      .create-note-btn,
+      .edit-book-btn,
+      .finish-reading-btn {
         width: 25vw;
         max-width: 180px;
       }
     }
   }
 }
+
 @media (min-width: 801px) {
   .left-content {
     .btn-area {
-      #book-register-link, .amazon-link-btn, .create-note-btn, .edit-book-btn, .finish-reading-btn {
+
+      #book-register-link,
+      .amazon-link-btn,
+      .create-note-btn,
+      .edit-book-btn,
+      .finish-reading-btn {
         width: 150px;
       }
     }
@@ -492,18 +558,22 @@ footer ul li {
 .contents {
   max-width: 1000px;
   margin: 0 auto;
+
   .book-image {
     img {
       object-fit: contain;
     }
   }
+
   .book-title {
     color: $gray;
   }
+
   .book-author {
     color: $gray;
     margin-bottom: 30px;
   }
+
   a.amazon-link-btn {
     display: inline-block;
     height: 40px;
@@ -516,7 +586,10 @@ footer ul li {
     border-radius: 5px;
   }
 
-  #book-register-link, .create-note-btn, .edit-book-btn, .finish-reading-btn {
+  #book-register-link,
+  .create-note-btn,
+  .edit-book-btn,
+  .finish-reading-btn {
     display: inline-block;
     height: 40px;
     margin: 10px 0;
@@ -524,13 +597,18 @@ footer ul li {
     text-align: center;
     line-height: 40px;
   }
-  #book-register-link:active, .create-note-btn:active,  .edit-book-btn:active, .finish-reading-btn:active {
+
+  #book-register-link:active,
+  .create-note-btn:active,
+  .edit-book-btn:active,
+  .finish-reading-btn:active {
     @include btn_action;
   }
-    
+
   .right-content {
     color: $gray;
     overflow-y: auto;
+
     .contents-title {
       font-size: 25px;
       text-align: center;
@@ -545,6 +623,7 @@ footer ul li {
   padding: 10px;
   margin: 0 auto;
   margin-top: 10px;
+
   .note-link {
     display: block;
     width: 100%;
@@ -553,32 +632,37 @@ footer ul li {
     top: 0;
     left: 0;
   }
+
   .note-info {
     margin-bottom: 5px;
     display: flex;
     justify-content: space-between;
-    <%# 追加 %>
-    color:black;
+    <%# 追加 %>color: black;
+
     &__user {
       font-size: 20px;
     }
+
     &__likes-count {
       font-size: 13px;
+
       i {
         color: red;
         margin-right: 5px;
       }
     }
   }
+
   .note-content {
-    <%# 追加 %>
-    color:black;
+    <%# 追加 %>color: black;
+
     &__title {
       font-size: 18px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
     &__content {
       font-size: 13px;
       margin-left: 20px;
@@ -590,25 +674,92 @@ footer ul li {
 }
 
 
+/* book/show2 by prog ================================ */
+.posts-show form {
+  display: inline;
+}
+
+.posts-show-item {
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0 2px 6px #c1ced7;
+  overflow: hidden;
+}
+
+.posts-show-item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 40%;
+  box-shadow: 0 2px 6px #c1ced7;
+  vertical-align: middle;
+  object-fit: cover;
+}
+
+.posts-show-item .post-user-name a {
+  vertical-align: middle;
+  font-size: 24px;
+  margin-left: 15px;
+}
+
+.posts-show-item p {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.post-time {
+  color: #8899a6;
+  margin-bottom: 10px;
+}
+
+.like-btn {
+  color: #8899a6;
+}
+
+.like-btn-unlike {
+  color: #ff2581;
+}
+
+.posts-show-item .fa {
+  font-size: 16px;
+  margin-right: 3px;
+}
+
+.post-menus {
+  float: right;
+}
+
+.post-menus a,
+.post-menus input {
+  color: #8899a6;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+
 /*review_show page*/
- .note-show-wrapper {
+.note-show-wrapper {
   padding: 20px 30px 70px;
 }
+
 .link-area {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
-  .back-page-btn, .user-page-btn {
+
+  .back-page-btn,
+  .user-page-btn {
     display: inline-block;
     width: 170px;
     padding: 5px;
     text-decoration: none;
     color: #fff;
   }
+
   .note-edit-area {
     display: flex;
   }
+
   .edit-note-btn {
     margin-right: 20px;
     text-decoration: none;
@@ -616,6 +767,7 @@ footer ul li {
     font-size: 25px;
     font-weight: 700;
   }
+
   #delete-note-link {
     margin-right: 5px;
     text-decoration: none;
@@ -631,11 +783,13 @@ footer ul li {
     margin: 0 auto;
     padding: 20px 0;
     margin-bottom: 10px;
+
     &__book-title {
       color: #fff;
       text-align: center;
       font-size: 18px;
     }
+
     &__user-name {
       font-size: 18px;
       margin: 0 auto;
@@ -644,29 +798,39 @@ footer ul li {
     }
 
   }
+
   h2.slide-title {
     @include section-title;
   }
+
   .summary-area {
     @include section-content;
+
     .summary-slide {
       padding: 10px 0;
       margin: 0 auto;
       margin-bottom: 10px;
       border-top: 1px solid #dadce0;
+
       &__title {
         @include marker();
         display: inline-block;
       }
+
       &__content {
         white-space: pre-wrap;
       }
     }
   }
-  .review-area, .action-plan-area, .purpose-area, .memo-area {
+
+  .review-area,
+  .action-plan-area,
+  .purpose-area,
+  .memo-area {
     @include section-content;
     white-space: pre-wrap;
   }
+
   .summary-slide:first-child {
     border: none;
   }
@@ -680,12 +844,15 @@ footer ul li {
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 10px;
+
   a {
     text-decoration: none;
   }
+
   .liked-icon {
     color: red;
   }
+
   .like-icon {
     color: gray;
   }
@@ -697,15 +864,18 @@ footer ul li {
   margin: 0 auto;
   padding: 20px 0;
   text-align: center;
+
   .comment-form-area {
     width: 100%;
     height: 50px;
     display: inline-block;
     padding-left: 10px;
   }
+
   .btn-area {
     margin-top: 10px;
   }
+
   .comment-submit-btn {
     border: none;
     @include btn();
@@ -714,6 +884,7 @@ footer ul li {
     text-align: center;
     margin: 0 auto;
   }
+
   .comment-submit-btn:active {
     @include btn_action;
   }
@@ -737,9 +908,10 @@ footer ul li {
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 10px;
+
   &__info {
     text-align: right;
-    font-size:12px;
+    font-size: 12px;
   }
 }
 
@@ -747,7 +919,7 @@ footer ul li {
   @include modal;
 }
 
-.btn{
+.btn {
   text-align: right;
 }
 
@@ -817,9 +989,11 @@ footer ul li {
     margin: 0 auto;
     margin-top: 20px;
   }
+
   .content-tabs {
     border-bottom: 2px solid gray;
     display: flex;
+
     .books-menu-tab {
       width: 130px;
       text-align: center;
@@ -830,6 +1004,7 @@ footer ul li {
       color: #fff;
       cursor: pointer;
     }
+
     .books-menu-tab.active {
       background-color: #c66719;
     }
@@ -839,18 +1014,23 @@ footer ul li {
 .user-books-area {
   display: none;
 }
+
 .user-books-area.show {
   max-width: 1000px;
   margin: 0 auto;
   margin-top: 40px;
   @include review_index;
   padding: 0;
+
   .no-image {
     @include no_image;
   }
-  .book-area__note-info, .update-book-status-link {
+
+  .book-area__note-info,
+  .update-book-status-link {
     font-size: 12px;
   }
+
   .book-area__note-link {
     text-decoration: none;
     color: $light_blue;

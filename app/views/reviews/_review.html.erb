@@ -1,0 +1,38 @@
+<div class="main posts-show">
+  <div class="container">
+    <div class="posts-show-item">
+      <div class="post-user-name">
+        <% if review.user.image.present? %>
+        <%= image_tag review.user.image.to_s, class:'icon_image'%>
+        <% else %>
+        <%= image_tag "未設定_アイコン画像.png", class:'icon_image'%>
+        <% end %>
+        <%= link_to(review.user.username, user_path(review.user)) %>
+      </div>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th><%= Review.human_attribute_name(:purpose) %></th>
+            <td><%= review.purpose %></td>
+          </tr>
+          <tr>
+            <th><%= Review.human_attribute_name(:plan_now) %></th>
+            <td><%= review.plan_now %></td>
+          </tr>
+          <tr>
+            <th><%= Review.human_attribute_name(:plan_future) %></th>
+            <td><%= review.plan_future %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="post-time">
+        <%= review.created_at %>
+      </div>
+      <% if review.user_id == current_user.id %>
+      <div class="post-menus">
+        <%= link_to("詳細", book_review_path(@book,review)) %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
