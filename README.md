@@ -79,6 +79,7 @@ https://app.bizmake.jp/share/Lean/6398/sf60hf （※Biz Make の新規登録(無
 
 - Google Books API
 - メンターによる進捗管理できる機能を検討している
+- 達成状況(◎◯△×)を評価できる機能
 
 # テスト
 
