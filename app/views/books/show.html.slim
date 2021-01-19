@@ -19,6 +19,7 @@
       .create-note-link
         - if current_user
           = link_to "行動文を提出する", new_book_review_path(@book.id) , class: "create-note-btn"
+
     /book_id含むレビューを登録して確認すること
     .notes-counts
       = "この本の行動文提出数 #{@reviews.length}"
