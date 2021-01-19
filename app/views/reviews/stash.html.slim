@@ -42,3 +42,38 @@
   <% end %>
   <div class="media-body">
     <h5 class="mt-0"><%= "#{review.user.username}さんの読書行動文" %></h5>
+
+<div class="main posts-show">
+  <div class="container">
+    <div class="posts-show-item">
+      <div class="post-user-name">
+        <% if review.user.image.present? %>
+        <%= link_to image_tag(review.user.image.to_s, class:'icon_image'), user_path(review.user) %>
+        <% else %>
+        <%= link_to image_tag("未設定_アイコン画像.png", class:'icon_image'), user_path(review.user) %>
+        <% end %>
+        <%= "提出者：#{review.user.username}" %>
+        <%= "提出日：#{ l review.created_at}" %>
+      </div>
+      <table class="table table-bordered">
+        <tr>
+          <th><%= Review.human_attribute_name(:purpose) %></th>
+          <td><%= review.purpose %></td>
+        </tr>
+        <tr>
+          <th><%= Review.human_attribute_name(:plan_now) %></th>
+          <td><%= review.plan_now %></td>
+        </tr>
+        <tr>
+          <th>3ヶ月後達成している事</th>
+          <td><%= review.plan_future %></td>
+        </tr>
+      </table>
+      <% if review.user_id == current_user.id %>
+      <div class="post-menus">
+        <%= link_to("詳細", book_review_path(@book,review)) %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

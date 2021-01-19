@@ -19,24 +19,24 @@
       .top-slide__user-name
         = "行動文提出者 : #{@review.user.username}"
 
-    h2.slide-title
+    h2.slide-title.p-2
       = Review.human_attribute_name(:purpose)
-    .purpose-area
+    .purpose-area.p-4
       =@review.purpose
 
-    h2.slide-title
+    h2.slide-title.p-2
       = Review.human_attribute_name(:memo)
-    .purpose-area
+    .purpose-area.p-4
       =@review.memo
 
-    h2.slide-title
+    h2.slide-title.p-2
       = Review.human_attribute_name(:plan_now)
-    .review-area
+    .review-area.p-4
       =@review.plan_now
 
-    h2.slide-title
+    h2.slide-title.p-2
       = Review.human_attribute_name(:plan_future)
-    .action-plan-area
+    .action-plan-area.p-4
       =@review.plan_future
 
     h2.slide-title
