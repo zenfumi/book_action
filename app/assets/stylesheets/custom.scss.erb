@@ -745,13 +745,13 @@ footer ul li {
   margin-top: 10px;
 }
 
-.table th,
-td {
+.table td {
   color: black;
   border: 1px solid #D98650 !important;
 }
 
 .table th {
+  color: white;
   background-color: #c66719;
   border: 1px solid #D98650 !important;
 }
@@ -768,6 +768,8 @@ td {
 /*review_show page*/
 .note-show-wrapper {
   padding: 20px 30px 70px;
+  background-color: white;
+  color: black;
 }
 
 .link-area {
@@ -782,7 +784,8 @@ td {
     width: 170px;
     padding: 5px;
     text-decoration: none;
-    color: #fff;
+    color: black;
+    ;
   }
 
   .note-edit-area {
@@ -814,7 +817,7 @@ td {
     margin-bottom: 10px;
 
     &__book-title {
-      color: #fff;
+      color: black;
       text-align: center;
       font-size: 18px;
     }
@@ -858,6 +861,7 @@ td {
   .memo-area {
     @include section-content;
     white-space: pre-wrap;
+    border: 1px solid #D98650;
   }
 
   .summary-slide:first-child {
@@ -918,8 +922,6 @@ td {
     @include btn_action;
   }
 }
-
-
 
 .comments {
   p {
