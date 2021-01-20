@@ -51,7 +51,7 @@
     = render partial: 'likes', locals: {review: @review, book: @book,　likes: @likes }
 
   .btn-area
-  = link_to "https://twitter.com/share?url=#{ request.url }&text=「#{@book.title}」の読書行動文#{@review.user.username}今からやること：#{@review.plan_now} 3ヶ月後に何をするか、どうなりたいか:#{@review.plan_future} &hashtags=読書行動文", class: 'btn btn-default text-white', color: "#fff", target: '_blank' do
+  = link_to "https://twitter.com/share?url=#{ request.url }&text=「#{@book.title}」の読書行動文#{@review.user.username}今からやること：#{@review.plan_now} 3ヶ月後に何をするか、どうなりたいか:#{@review.plan_future} &hashtags=読書行動文", class: 'btn btn-default text-black', color: "#fff", target: '_blank' do
     i.fab.fa-twitter style='color: #3399FF;'
     |  Twitterで宣言しよう
 
