@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta charset="UTF-8">
-    <meta name="description" content="読書行動文は、読んだ本を行動に繋げる為の文（読書行動文）を保存し、宣言できるサービスです">
-    <meta property="og:title" content="読書行動文 - 読んだ本を行動に繋げる為の文（読書行動文）を保存し、宣言できるサービスです。">
-    <meta property="og:url" content="#">
-    <meta property="og:description" content="読書行動文は、読んだ本を行動に繋げる為の文（読書行動文）を保存し、宣言できるサービスです">
-    <meta property="og:locale" content="ja_JP">
-    <meta property="og:image" content="#">
-    <title><%= full_title(yield(:title)) %></title>
-    <%= render 'layouts/rails_default' %>
-    <%= render 'layouts/shim' %>
-  </head>
-  <body>
-    <%= render 'layouts/header'%>
-  <div class="container">
+
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="description" content="読書行動文は、読んだ本を行動に繋げる為の文（読書行動文）を保存し、宣言できるサービスです">
+  <meta property="og:title" content="読書行動文 - 読んだ本を行動に繋げる為の文（読書行動文）を保存し、宣言できるサービスです。">
+  <meta property="og:url" content="#">
+  <meta property="og:description" content="読書行動文は、読んだ本を行動に繋げる為の文（読書行動文）を保存し、宣言できるサービスです">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="#">
+  <title><%= full_title(yield(:title)) %></title>
+  <%= render 'layouts/rails_default' %>
+  <%= render 'layouts/shim' %>
+</head>
+
+<body>
+  <%= render 'layouts/header'%>
+  <div class="container" style="padding-top: 110px;">
     <%= yield %>
     <%= render 'layouts/footer' %>
     <%= debug(params) if Rails.env.development? %>
   </div>
-  </body>
+</body>
+
 </html>
