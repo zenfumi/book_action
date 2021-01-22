@@ -28,13 +28,16 @@
   </div>
   <div class="d-flex">
     <div class="ml20 mr20">行動中
-      <div class="text-center">2</div>
+      <% @reviews = Review.where(user_id: @user.id, completed: 0) %>
+      <div class="text-center"><%= @reviews.count %></div>
     </div>
     <div class="mr20"> 習慣化
-      <div class="text-center">2</div>
+      <% @reviews = Review.where(user_id: @user.id, completed: 1) %>
+      <div class="text-center"><%= @reviews.count %></div>
     </div>
     <div class="ml10">達成
-      <div class="text-center">2</div>
+      <% @reviews = Review.where(user_id: @user.id, completed: 2) %>
+      <div class="text-center"><%= @reviews.count %></div>
     </div>
   </div>
 </div>
