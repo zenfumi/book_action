@@ -1,5 +1,5 @@
 <div class="main posts-show">
-  <div class="container">
+  <div class="container pt0">
     <div class="posts-show-item">
       <div class="post-user-name">
         <%= "#{review.book.title}" %>
@@ -18,7 +18,7 @@
           <td><%= review.plan_future %></td>
         </tr>
       </table>
-      <h3><%= "提出日：#{ l review.created_at}" %></h3>
+      <h3 class="text-dark"><%= "提出日：#{ l review.created_at}" %></h3>
       <% if review.user_id == current_user.id %>
       <div class=" post-menus">
         <%= link_to("詳細", book_review_path(review.book_id,review)) %>

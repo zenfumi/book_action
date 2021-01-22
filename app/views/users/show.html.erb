@@ -1,49 +1,65 @@
- <div class="flex mb8 mt10">
-   <a href=" #" class="c-profile_image mb8 mr12">
-     <% if @user.image.present? %>
-     <%= image_tag @user.image.to_s, class:'icon_image'%>
-     <% else %>
-     <%= image_tag "未設定_アイコン画像.png", class:'icon_image'%>
-     <% end %>
-   </a>
- </div>
- <div class="flex">
-   <div class="c-profile_nicknameArea">
-     <p class="c-profile_nickname mb4">
-       <span v-if="user.private_flg"></span>
-       <%= link_to "#{@user.username}さんの行動管理簿", user_path(@user),class: 'js-scroll-trigger' %>
-     </p>
-   </div>
-   <p class="tar wf">
-     <% if @user.id == current_user.id %>
-     <%= link_to "編集", edit_user_registration_path , class: "btn btn-primary" %>
-     <% end %>
-   </p>
- </div>
- </section>
- <div class="main-content">
-   <div class="tabs-area">
-     <div class="content-tabs">
-       <div class="books-menu-tab active"> 全て</div>
-       <div class="books-menu-tab">行動中</div>
-       <div class="books-menu-tab">習慣化 </div>
-       <div class="books-menu-tab"> 達成</div>
-     </div>
-   </div>
-   <div class="note-area">
-     <div class="user-books-area show">
-       <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
-     </div>
-     <div class="user-books-area">
-       <% @reviews = Review.where(user_id: @user.id, completed: 0) %>
-       <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
-     </div>
-     <div class="user-books-area">
-       <% @reviews = Review.where(user_id: @user.id, completed: 1) %>
-       <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
-     </div>
-     <div class="user-books-area">
-       <% @reviews = Review.where(user_id: @user.id, completed: 2) %>
-       <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %> </div>
-   </div>
- </div>
+<div class="d-flex mb8 mt10" style="padding-left: 80px; padding-right: 80px;">
+  <a href=" #" class="c-profile_image mb8 mr12">
+    <% if @user.image.present? %>
+    <%= image_tag @user.image.to_s, class:'icon_image'%>
+    <% else %>
+    <%= image_tag "未設定_アイコン画像.png", class:'icon_image'%>
+    <% end %>
+  </a>
+  <div class="c-profile_nickname mb4">
+    <div>
+      <%= link_to "#{@user.username}さんの行動管理簿", user_path(@user),class: 'js-scroll-trigger' %>
+    </div>
+    <div class="d-flex mt16">
+      <div class="small ml20 mr40">提出数
+        <div class="text-center"><%= @review.count %></div>
+      </div>
+      <div class="small">いいね
+        <div class="text-center"><%= @likes.count %></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex">
+  <div>
+    <% if @user.id == current_user.id %>
+    <%= link_to "編集", edit_user_registration_path , class: "btn btn-outline-secondary btn-sm", :style=>"margin-left: 89px;" %>
+    <% end %>
+  </div>
+  <div class="d-flex">
+    <div class="ml20 mr20">行動中
+      <div class="text-center">2</div>
+    </div>
+    <div class="mr20"> 習慣化
+      <div class="text-center">2</div>
+    </div>
+    <div class="ml10">達成
+      <div class="text-center">2</div>
+    </div>
+  </div>
+</div>
+
+<div class="main-content">
+  <div class="tabs-area">
+    <div class="content-tabs">
+      <div class="books-menu-tab active"> 全て</div>
+      <div class="books-menu-tab">行動中</div>
+      <div class="books-menu-tab">習慣化 </div>
+      <div class="books-menu-tab"> 達成</div>
+    </div>
+  </div>
+  <div class="user-books-area show mt0">
+    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
+  </div>
+  <div class="user-books-area mt0">
+    <% @reviews = Review.where(user_id: @user.id, completed: 0) %>
+    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
+  </div>
+  <div class="user-books-area mt0">
+    <% @reviews = Review.where(user_id: @user.id, completed: 1) %>
+    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
+  </div>
+  <div class="user-books-area mt0">
+    <% @reviews = Review.where(user_id: @user.id, completed: 2) %>
+    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %> </div>
+</div>
