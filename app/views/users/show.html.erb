@@ -24,6 +24,8 @@
   <div>
     <% if @user.id == current_user.id %>
     <%= link_to "編集", edit_user_registration_path , class: "btn btn-outline-secondary btn-sm", :style=>"margin-left: 89px;" %>
+    <% else %>
+    <%= link_to "編集", edit_user_registration_path , class: "btn btn-outline-secondary btn-sm invisible", :style=>"margin-left: 89px;" %>
     <% end %>
   </div>
   <div class="d-flex">
