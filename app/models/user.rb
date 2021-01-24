@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments
   has_many :books, dependent: :destroy
+  validates :username, presence: true, length: { maximum: 20 }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   # confirmableは現在オフとしており、記述していない
