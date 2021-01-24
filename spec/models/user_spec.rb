@@ -14,7 +14,6 @@ RSpec.describe User, type: :model do
       let(:user) { build(:user, email: "") }
       it "エラーが発生する",type: :running do
         expect(user.valid?).to eq false
-        binding.pry
         expect(user.errors.messages[:email]).to include "を入力してください"
       end
     end
@@ -22,8 +21,14 @@ RSpec.describe User, type: :model do
       let(:user) { build(:user, password: "") }
       it "エラーが発生する",type: :walking do
         expect(user.valid?).to eq false
-        binding.pry
         expect(user.errors.messages[:password]).to include "を入力してください"
+      end
+    end
+    context "usernameが空のとき" do
+      let(:user) {build(:user, username: "")}
+      it "エラーが発生する",type: jogging do
+        expect(user.valid?).to eq false
+        expect(user.errors.messages[:username]).to include "を入力してください"
       end
     end
   end
