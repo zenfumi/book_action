@@ -48,7 +48,6 @@ RSpec.describe User, type: :model do
     end
     context "profileが空の時" do
       let(:user)  { build(:user,image: "") }
-      binding.pry
       it "保存できる",type: :hopping do
       expect(subject).to eq true
     end
