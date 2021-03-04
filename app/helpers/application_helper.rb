@@ -6,7 +6,7 @@ module ApplicationHelper
   end
 
   def full_title(page_title = '')
-    base_title = "Book_action"
+    base_title = "読書行動文"
     if page_title.empty?
       base_title
     else

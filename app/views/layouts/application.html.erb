@@ -4,13 +4,17 @@
 <head>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta charset="UTF-8">
+  <meta name="keywords" content="本,読書,行動">
   <meta name="description" content="読書行動文は、読んだ本を行動に繋げる為の文（読書行動文）を保存し、宣言できるサービスです">
-  <meta property="og:title" content="読書行動文 - 読んだ本を行動に繋げる為の文（読書行動文）を保存し、宣言できるサービスです。">
-  <meta property="og:url" content="#">
+  <meta name="author" content="S.Yoshi">
+  <title><%= full_title(yield(:title)) %></title>
+  <!-- OGP設定 -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://book-action.com/">
+  <meta property="og:title" content="読書行動文">
   <meta property="og:description" content="読書行動文は、読んだ本を行動に繋げる為の文（読書行動文）を保存し、宣言できるサービスです">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:image" content="#">
-  <title><%= full_title(yield(:title)) %></title>
   <%= render 'layouts/rails_default' %>
   <%= render 'layouts/shim' %>
 </head>
