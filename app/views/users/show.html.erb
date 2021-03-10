@@ -54,6 +54,7 @@
     </div>
   </div>
   <div class="user-books-area show mt0">
+    <% @reviews = Review.where(user_id: @user.id) %>
     <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
   </div>
   <div class="user-books-area mt0">
