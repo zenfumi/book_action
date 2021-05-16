@@ -54,18 +54,18 @@
     </div>
   </div>
   <div class="user-books-area show mt0">
-    <% @reviews = Review.where(user_id: @user.id) %>
-    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
+    <% @reviews = Review.where(user_id: @user.id).includes(:book) %>
+    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review" %>
   </div>
   <div class="user-books-area mt0">
-    <% @reviews = Review.where(user_id: @user.id, completed: 0) %>
-    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
+    <% @reviews = Review.where(user_id: @user.id, completed: 0).includes(:book) %>
+    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review"%>
   </div>
   <div class="user-books-area mt0">
-    <% @reviews = Review.where(user_id: @user.id, completed: 1) %>
-    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %>
+    <% @reviews = Review.where(user_id: @user.id, completed: 1).includes(:book) %>
+    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review"%>
   </div>
   <div class="user-books-area mt0">
-    <% @reviews = Review.where(user_id: @user.id, completed: 2) %>
-    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review", book: @book %> </div>
+    <% @reviews = Review.where(user_id: @user.id, completed: 2).includes(:book) %>
+    <%= render partial: 'reviews/user_review', collection: @reviews, as: "review" %> </div>
 </div>
