@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @search = Book.ransack(params[:q])
-    @search_books = @search.result
+    @search_books = @search.result.with_attached_image
   end
 
 
